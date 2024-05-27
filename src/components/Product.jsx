@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
 import { useNavigate, useParams } from "react-router-dom";
 
 const Product = () => {

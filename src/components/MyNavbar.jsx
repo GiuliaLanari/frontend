@@ -2,6 +2,7 @@ import axios from "axios";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import Button from "react-bootstrap/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { LOGOUT } from "../redux/actions";
@@ -47,6 +48,8 @@ const MyNavbar = () => {
                 </Link>
               </>
             )}
+            {/* se è un amministratore */}
+            <Button variant="primary mx-1">Add Product</Button>
           </Nav>
         </Navbar.Collapse>
       </Container>
