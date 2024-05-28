@@ -2,7 +2,7 @@ import axios from "axios";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Button from "react-bootstrap/Button";
+
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { LOGOUT } from "../redux/actions";
@@ -21,7 +21,7 @@ const MyNavbar = () => {
   };
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="md" className="bg-body-tertiary">
       <Container>
         <Link to="/" className="nav-link">
           PlusArt
@@ -33,7 +33,9 @@ const MyNavbar = () => {
             <Link href="#link">Link</Link> */}
             {user ? (
               <>
-                <span className="nav-link me-2">{user.name}</span>
+                <span className="nav-link me-2">
+                  {user.name} {user.surname}
+                </span>
                 <button className="nav-link" onClick={logout}>
                   Logout
                 </button>
@@ -48,8 +50,29 @@ const MyNavbar = () => {
                 </Link>
               </>
             )}
-            {/* se è un amministratore */}
-            <Button variant="primary mx-1">Add Product</Button>
+            {/* se sei un CLIENT */}
+
+            {user && user.role === "client" ? (
+              <>
+                <Link to="/" className="nav-link">
+                  Cart
+                </Link>
+              </>
+            ) : (
+              ""
+            )}
+
+            {/* se è un ADMIN */}
+            {user && user.role === "admin" ? (
+              <Link to="/products/add" className="nav-link">
+                Add Product
+              </Link>
+            ) : (
+              ""
+            )}
+            <Link to="/reviews" className="nav-link">
+              Reviews
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

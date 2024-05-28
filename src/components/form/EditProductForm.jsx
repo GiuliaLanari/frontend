@@ -1,11 +1,28 @@
 import axios from "axios";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { LOGIN } from "../redux/actions";
+import { useEffect, useState } from "react";
+
 import { Col, Container, Row } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
 
 const NewProductForm = () => {
-  const dispatch = useDispatch();
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get(`/api/v1/products/${id}`)
+
+      .then((res) =>
+        setFormData({
+          title: res.data.data.title,
+          picture: res.data.data.picture === null ? "" : res.data.data.picture,
+          description: res.data.data.description,
+          price: res.data.data.price,
+        })
+      );
+
+    // .catch((err) => navigate("/"));
+  }, [id]);
 
   const [formData, setFormData] = useState({
     title: "",
@@ -26,13 +43,9 @@ const NewProductForm = () => {
 
     axios
       .get("/sanctum/csrf-cookie")
-      .then(() => axios.post("/products/{id}/edit", formData))
-      .then(() => axios.get("/api/user"))
+      .then(() => axios.put(`/api/v1/products/${id}/edit`, formData))
       .then((res) => {
-        dispatch({
-          type: ,//devo creare uno stato per salvare il dato?
-          payload: res.data,
-        });
+        navigate("/");
       });
   };
 

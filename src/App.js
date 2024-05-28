@@ -11,6 +11,13 @@ import MyNavbar from "./components/MyNavbar";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { LOGIN } from "./redux/actions";
+import NewProductForm from "./components/form/NewProductForm";
+import EditProductForm from "./components/form/EditProductForm";
+import GuestRoutes from "./components/route/GuestRoutes";
+import AdminRoutes from "./components/route/AdminRoutes";
+import Review from "./components/Review";
+import ClientRoutes from "./components/route/ClientRoutes";
+import NewReviewForm from "./components/form/NewReviewForm";
 
 function App() {
   axios.defaults.withCredentials = true;
@@ -34,15 +41,28 @@ function App() {
     <>
       <BrowserRouter>
         <MyNavbar />
-        <Routes>
-          {/* <Route element={<ProtectedRoutes />}>
-          
-        </Route> */}
 
+        <Routes>
+          {/* ROTTE PROTETTE ADMIN */}
+          <Route element={<AdminRoutes />}>
+            <Route path="/products/add" element={<NewProductForm />} />
+            <Route path="/products/:id/edit" element={<EditProductForm />} />
+          </Route>
+          {/* ROTTE PROTETTE CLIENT */}
+          <Route element={<ClientRoutes />}>
+            <Route path="/reviews/add" element={<NewReviewForm />} />
+          </Route>
+
+          {/*  rotte NON protette */}
+          <Route element={<GuestRoutes />}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Route>
+
+          {/* rotte accessibili a TUTTI */}
           <Route path="/" element={<Home />} />
           <Route path="/products/:id" element={<Product />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/reviews" element={<Review />} />
 
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<Navigate to="/404" />} />

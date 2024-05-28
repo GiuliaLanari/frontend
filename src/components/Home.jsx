@@ -1,17 +1,31 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Container from "react-bootstrap/Container";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import axios from "axios";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const user = useSelector((state) => state.user);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("/api/v1/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
+
+  const deleteProduct = (id) => {
+    axios
+      .delete(`/api/v1/products/${id}`)
+
+      .then((res) => {
+        navigate("/");
+      });
+  };
 
   return (
     <Container>
@@ -20,12 +34,27 @@ const Home = () => {
         <div key={product.id}>
           <h2>{product.title}</h2>
           <Link to={`/products/${product.id}`}>Dettagli</Link>
-          {/* in caso del cliente */}
-          <Button variant="primary mx-1">Add to cart</Button>
-          {/* questi nel caso è un amministratore */}
-          <Button variant="danger mx-1">Delete</Button>
-          <Button variant="success mx-1">Edit</Button>
-          {/*  */}
+          {/* in caso del cliente ⬇ */}
+          {user && user.role === "client" ? <Button variant="primary mx-1">Add to cart</Button> : ""}
+
+          {/* questi nel caso è un amministratore ⬇*/}
+          {user && user.role === "admin" ? (
+            <>
+              <Button
+                onClick={() => {
+                  deleteProduct(product.id);
+                }}
+                variant="danger mx-1"
+              >
+                Delete
+              </Button>
+              <Link to={`/products/${product.id}/edit`} className="btn btn-info">
+                Edit
+              </Link>
+            </>
+          ) : (
+            ""
+          )}
         </div>
       ))}
     </Container>

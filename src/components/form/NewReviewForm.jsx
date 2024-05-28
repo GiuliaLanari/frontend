@@ -4,10 +4,10 @@ import { Col, Container, Row } from "react-bootstrap";
 
 const NewProductForm = () => {
   const [formData, setFormData] = useState({
-    title: "",
-    picture: "",
-    description: "",
-    price: "",
+    rating: "",
+    comment: "",
+    // product_id: "",
+    // user_id: "",
   });
 
   const updateInputValue = (ev) => {
@@ -22,13 +22,13 @@ const NewProductForm = () => {
 
     axios
       .get("/sanctum/csrf-cookie")
-      .then(() => axios.post("/api/v1/products/add", formData))
+      .then(() => axios.post("/api/v1/reviews/add", formData))
       .then((res) => {
         setFormData({
-          title: "",
-          picture: "",
-          description: "",
-          price: "",
+          rating: "",
+          comment: "",
+          // product_id: "",
+          // user_id: "",
         });
       });
   };
@@ -37,63 +37,63 @@ const NewProductForm = () => {
     <Container>
       <Row>
         <Col xs={12} md={5} className="mx-auto my-5">
-          <h1>New product</h1>
+          <h1>New review</h1>
           <form onSubmit={(ev) => submitLogin(ev)} noValidate>
             <div className="mb-3">
-              <label htmlFor="title" className="form-label">
-                Name Product
+              <label htmlFor="rating" className="form-label">
+                Rating
               </label>
               <input
-                type="title"
+                type="rating"
                 className="form-control"
-                id="title"
-                name="title"
+                id="rating"
+                name="rating"
                 onChange={(ev) => updateInputValue(ev)}
-                value={formData.title}
+                value={formData.rating}
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="picture" className="form-label">
-                Picture
+              <label htmlFor="comment" className="form-label">
+                Comment
               </label>
               <input
-                type="picture"
+                type="comment"
                 className="form-control"
-                id="picture"
-                name="picture"
+                id="comment"
+                name="comment"
                 onChange={(ev) => updateInputValue(ev)}
-                value={formData.picture}
+                value={formData.comment}
+              />
+            </div>
+            {/* <div className="mb-3">
+              <label htmlFor="product_id" className="form-label">
+                product_id
+              </label>
+              <input
+                type="product_id"
+                className="form-control"
+                id="product_id"
+                name="product_id"
+                onChange={(ev) => updateInputValue(ev)}
+                value={formData.product_id}
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="description" className="form-label">
-                Description
+              <label htmlFor="user_id" className="form-label">
+                user_id
               </label>
               <input
-                type="description"
+                type="user_id"
                 className="form-control"
-                id="description"
-                name="description"
+                id="user_id"
+                name="user_id"
                 onChange={(ev) => updateInputValue(ev)}
-                value={formData.description}
+                value={formData.user_id}
               />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="price" className="form-label">
-                Price
-              </label>
-              <input
-                type="price"
-                className="form-control"
-                id="price"
-                name="price"
-                onChange={(ev) => updateInputValue(ev)}
-                value={formData.price}
-              />
-            </div>
+            </div> */}
 
             <button type="submit" className="btn btn-primary">
-              Add new Product
+              Add new Review
             </button>
           </form>
         </Col>

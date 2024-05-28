@@ -9,7 +9,7 @@ const Register = () => {
 
   const [formData, setFormData] = useState({
     name: "",
-    // surname: "",
+    surname: "",
     email: "",
     password: "",
     password_confirmation: "",
@@ -55,19 +55,19 @@ const Register = () => {
                 value={formData.name}
               />
             </div>
-            {/* <div className="mb-3">
-        <label htmlFor="surname" className="form-label">
-          Surname
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="surname"
-          name="surname"
-          onChange={(ev) => updateInputValue(ev)}
-          value={formData.surname}
-        />
-      </div> */}
+            <div className="mb-3">
+              <label htmlFor="surname" className="form-label">
+                Surname
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="surname"
+                name="surname"
+                onChange={(ev) => updateInputValue(ev)}
+                value={formData.surname}
+              />
+            </div>
             <div className="mb-3">
               <label htmlFor="email" className="form-label">
                 Email address
