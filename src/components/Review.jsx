@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
@@ -30,13 +30,6 @@ const Review = () => {
   return (
     <Container>
       <h1>Pagina recensioni</h1>
-      {user ? (
-        <Link className="nav-link" to="/reviews/add">
-          Add review
-        </Link>
-      ) : (
-        ""
-      )}
 
       <Table striped bordered hover>
         <thead className="text-center">

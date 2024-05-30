@@ -1,8 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
 
 const NewProductForm = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     rating: "",
     comment: "",
@@ -22,14 +26,9 @@ const NewProductForm = () => {
 
     axios
       .get("/sanctum/csrf-cookie")
-      .then(() => axios.post("/api/v1/reviews/add", formData))
+      .then(() => axios.post(`/api/v1/reviews/${id}/add`, formData))
       .then((res) => {
-        setFormData({
-          rating: "",
-          comment: "",
-          // product_id: "",
-          // user_id: "",
-        });
+        navigate("/reviews");
       });
   };
 
@@ -65,32 +64,6 @@ const NewProductForm = () => {
                 value={formData.comment}
               />
             </div>
-            {/* <div className="mb-3">
-              <label htmlFor="product_id" className="form-label">
-                product_id
-              </label>
-              <input
-                type="product_id"
-                className="form-control"
-                id="product_id"
-                name="product_id"
-                onChange={(ev) => updateInputValue(ev)}
-                value={formData.product_id}
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="user_id" className="form-label">
-                user_id
-              </label>
-              <input
-                type="user_id"
-                className="form-control"
-                id="user_id"
-                name="user_id"
-                onChange={(ev) => updateInputValue(ev)}
-                value={formData.user_id}
-              />
-            </div> */}
 
             <button type="submit" className="btn btn-primary">
               Add new Review

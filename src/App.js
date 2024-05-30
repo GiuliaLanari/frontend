@@ -18,6 +18,10 @@ import AdminRoutes from "./components/route/AdminRoutes";
 import Review from "./components/Review";
 import ClientRoutes from "./components/route/ClientRoutes";
 import NewReviewForm from "./components/form/NewReviewForm";
+import OrderAdmin from "./components/OrderAdmin";
+import OrderClient from "./components/OrderClient";
+import OrderDettail from "./components/OrderDettail";
+import Cart from "./components/Cart";
 
 function App() {
   axios.defaults.withCredentials = true;
@@ -47,10 +51,14 @@ function App() {
           <Route element={<AdminRoutes />}>
             <Route path="/products/add" element={<NewProductForm />} />
             <Route path="/products/:id/edit" element={<EditProductForm />} />
+            <Route path="/orders" element={<OrderAdmin />} />
+            <Route path="/orders/:id" element={<OrderDettail />} />
           </Route>
           {/* ROTTE PROTETTE CLIENT */}
           <Route element={<ClientRoutes />}>
-            <Route path="/reviews/add" element={<NewReviewForm />} />
+            <Route path="/reviews/:id/add" element={<NewReviewForm />} />
+            <Route path="/myOrders" element={<OrderClient />} />
+            <Route path="/cart" element={<Cart />} />
           </Route>
 
           {/*  rotte NON protette */}

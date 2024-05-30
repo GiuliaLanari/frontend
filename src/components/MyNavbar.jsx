@@ -54,7 +54,7 @@ const MyNavbar = () => {
 
             {user && user.role === "client" ? (
               <>
-                <Link to="/" className="nav-link">
+                <Link to="/cart" className="nav-link">
                   Cart
                 </Link>
               </>
@@ -70,6 +70,21 @@ const MyNavbar = () => {
             ) : (
               ""
             )}
+            {user && user.role === "admin" ? (
+              <Link className="nav-link" to={`/orders`}>
+                Orders
+              </Link>
+            ) : (
+              ""
+            )}
+            {user && user.role === "client" ? (
+              <Link className="nav-link" to={`/myOrders`}>
+                Orders
+              </Link>
+            ) : (
+              ""
+            )}
+
             <Link to="/reviews" className="nav-link">
               Reviews
             </Link>

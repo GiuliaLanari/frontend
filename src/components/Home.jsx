@@ -8,6 +8,7 @@ import axios from "axios";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
   const user = useSelector((state) => state.user);
 
   const navigate = useNavigate();
@@ -27,6 +28,14 @@ const Home = () => {
       });
   };
 
+  const addCart = (id) => {
+    axios
+      .post(`/api/v1/carts/${id}/add`, {
+        quantity: 1,
+      })
+      .then((res) => setCart(res));
+  };
+
   return (
     <Container>
       <h1>Home page con prodotti</h1>
@@ -35,7 +44,27 @@ const Home = () => {
           <h2>{product.title}</h2>
           <Link to={`/products/${product.id}`}>Dettagli</Link>
           {/* in caso del cliente ⬇ */}
-          {user && user.role === "client" ? <Button variant="primary mx-1">Add to cart</Button> : ""}
+
+          {user && user.role === "client" ? (
+            <Button
+              onClick={() => {
+                addCart(product.id);
+              }}
+              variant="primary mx-2"
+            >
+              Add to cart
+            </Button>
+          ) : (
+            ""
+          )}
+
+          {user && user.role === "client" ? (
+            <Link className="nav-link" to={`/reviews/${product.id}/add`}>
+              Add review
+            </Link>
+          ) : (
+            ""
+          )}
 
           {/* questi nel caso è un amministratore ⬇*/}
           {user && user.role === "admin" ? (
