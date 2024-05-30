@@ -26,6 +26,14 @@ const Cart = () => {
       });
   };
 
+  // const buyCart = () => {
+  //   axios
+  //     .post(`/api/v1/buy-carts`, {
+  //       //cose da passare dal carello al ordine
+  //     })
+  //     .then((res) => setCart(res));
+  // };
+
   return (
     <Container>
       <h1>Pagina carello</h1>
@@ -46,6 +54,14 @@ const Cart = () => {
                 variant="danger mx-1"
               >
                 Delete
+              </Button>
+              <Button
+                // onClick={() => {
+                //   buyCart();
+                // }}
+                variant="success mx-1"
+              >
+                Compra
               </Button>
             </div>
           ))
