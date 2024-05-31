@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import { useNavigate, useParams } from "react-router-dom";
 
 const OrderDettail = () => {
-  const [order, setOrder] = useState(null); // null buon candidato
+  const [order, setOrder] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
 

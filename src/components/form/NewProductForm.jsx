@@ -29,6 +29,7 @@ const NewProductForm = () => {
           picture: "",
           description: "",
           price: "",
+          // category_id: "",
         });
       });
   };
@@ -44,7 +45,7 @@ const NewProductForm = () => {
                 Name Product
               </label>
               <input
-                type="title"
+                type="text"
                 className="form-control"
                 id="title"
                 name="title"
@@ -57,7 +58,7 @@ const NewProductForm = () => {
                 Picture
               </label>
               <input
-                type="picture"
+                type="file"
                 className="form-control"
                 id="picture"
                 name="picture"
@@ -70,7 +71,7 @@ const NewProductForm = () => {
                 Description
               </label>
               <input
-                type="description"
+                type="text"
                 className="form-control"
                 id="description"
                 name="description"
@@ -83,7 +84,7 @@ const NewProductForm = () => {
                 Price
               </label>
               <input
-                type="price"
+                type="number"
                 className="form-control"
                 id="price"
                 name="price"

@@ -9,6 +9,7 @@ import { Container } from "react-bootstrap";
 const Cart = () => {
   const [cart, setCart] = useState([]);
   const navigate = useNavigate();
+
   const user = useSelector((state) => state.user);
 
   useEffect(() => {
@@ -22,17 +23,15 @@ const Cart = () => {
       .delete(`/api/v1/carts/${id}`)
 
       .then((res) => {
-        navigate("/");
+        window.location.reload();
       });
   };
 
-  // const buyCart = () => {
-  //   axios
-  //     .post(`/api/v1/buy-carts`, {
-  //       //cose da passare dal carello al ordine
-  //     })
-  //     .then((res) => setCart(res));
-  // };
+  const buyCart = () => {
+    axios.post(`/api/v1/buy-carts`).then((res) => {
+      navigate("/myOrders");
+    });
+  };
 
   return (
     <Container>
@@ -40,7 +39,6 @@ const Cart = () => {
       {user && user.role === "client"
         ? cart.map((obj) => (
             <div key={obj.id}>
-              <p>Id ordine: {obj.id}</p>
               {obj.products.map((product) => (
                 <div key={product.id}>
                   <p>Nome prodotto: {product.title}</p>
@@ -56,9 +54,9 @@ const Cart = () => {
                 Delete
               </Button>
               <Button
-                // onClick={() => {
-                //   buyCart();
-                // }}
+                onClick={() => {
+                  buyCart();
+                }}
                 variant="success mx-1"
               >
                 Compra

@@ -29,8 +29,39 @@ const MyNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            {/* <Link href="#home">Home</Link>
-            <Link href="#link">Link</Link> */}
+            {/* se sei un CLIENT */}
+
+            {user && user.role === "client" ? (
+              <>
+                <Link to="/cart" className="nav-link">
+                  Cart
+                </Link>
+                <Link className="nav-link" to={`/myOrders`}>
+                  Orders
+                </Link>
+              </>
+            ) : (
+              ""
+            )}
+
+            {/* se è un ADMIN */}
+            {user && user.role === "admin" ? (
+              <>
+                <Link to="/products/add" className="nav-link">
+                  Add Product
+                </Link>
+                <Link className="nav-link" to={`/orders`}>
+                  Orders
+                </Link>
+              </>
+            ) : (
+              ""
+            )}
+
+            <Link to="/reviews" className="nav-link">
+              Reviews
+            </Link>
+
             {user ? (
               <>
                 <span className="nav-link me-2">
@@ -50,44 +81,6 @@ const MyNavbar = () => {
                 </Link>
               </>
             )}
-            {/* se sei un CLIENT */}
-
-            {user && user.role === "client" ? (
-              <>
-                <Link to="/cart" className="nav-link">
-                  Cart
-                </Link>
-              </>
-            ) : (
-              ""
-            )}
-
-            {/* se è un ADMIN */}
-            {user && user.role === "admin" ? (
-              <Link to="/products/add" className="nav-link">
-                Add Product
-              </Link>
-            ) : (
-              ""
-            )}
-            {user && user.role === "admin" ? (
-              <Link className="nav-link" to={`/orders`}>
-                Orders
-              </Link>
-            ) : (
-              ""
-            )}
-            {user && user.role === "client" ? (
-              <Link className="nav-link" to={`/myOrders`}>
-                Orders
-              </Link>
-            ) : (
-              ""
-            )}
-
-            <Link to="/reviews" className="nav-link">
-              Reviews
-            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

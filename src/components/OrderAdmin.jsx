@@ -8,7 +8,7 @@ import Button from "react-bootstrap/Button";
 const OrderAdmin = () => {
   const [orders, setOrders] = useState([]);
   const user = useSelector((state) => state.user);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`/api/v1/orders`)
@@ -23,7 +23,7 @@ const OrderAdmin = () => {
       .delete(`/api/v1/orders/${id}`)
 
       .then((res) => {
-        navigate("/");
+        window.location.reload("/orders");
       });
   };
 

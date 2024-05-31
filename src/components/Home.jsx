@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Container from "react-bootstrap/Container";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 
@@ -11,7 +11,7 @@ const Home = () => {
   const [cart, setCart] = useState([]);
   const user = useSelector((state) => state.user);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     fetch("/api/v1/products")
@@ -24,14 +24,14 @@ const Home = () => {
       .delete(`/api/v1/products/${id}`)
 
       .then((res) => {
-        navigate("/");
+        window.location.reload("/");
       });
   };
 
   const addCart = (id) => {
     axios
       .post(`/api/v1/carts/${id}/add`, {
-        quantity: 1,
+        // quantity: 1,
       })
       .then((res) => setCart(res));
   };
@@ -42,7 +42,9 @@ const Home = () => {
       {products.map((product) => (
         <div key={product.id}>
           <h2>{product.title}</h2>
+          {/* <div>{product.picture}</div> //COME RECUPERARE IMG */}
           <Link to={`/products/${product.id}`}>Dettagli</Link>
+
           {/* in caso del cliente ⬇ */}
 
           {user && user.role === "client" ? (

@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
@@ -9,7 +9,7 @@ import axios from "axios";
 const Review = () => {
   const user = useSelector((state) => state.user);
   const [reviews, setReviews] = useState([]);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   console.log(reviews);
   useEffect(() => {
@@ -23,7 +23,7 @@ const Review = () => {
       .delete(`/api/v1/reviews/${id}`)
 
       .then((res) => {
-        navigate("/reviews");
+        window.location.reload("/reviews");
       });
   };
 
@@ -38,6 +38,7 @@ const Review = () => {
             <th>Title product</th>
             <th>Rating</th>
             <th>Comment</th>
+            {user && user.name ? <th>Delete</th> : ""}
           </tr>
         </thead>
         <tbody>
