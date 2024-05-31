@@ -42,7 +42,8 @@ const Home = () => {
       {products.map((product) => (
         <div key={product.id}>
           <h2>{product.title}</h2>
-          {/* <div>{product.picture}</div> //COME RECUPERARE IMG */}
+          {/* img recupero */}
+          <img src={product.picture} alt={product.title} />
           <Link to={`/products/${product.id}`}>Dettagli</Link>
 
           {/* in caso del cliente ⬇ */}

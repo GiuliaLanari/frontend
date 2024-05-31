@@ -58,7 +58,7 @@ const NewProductForm = () => {
                 Picture
               </label>
               <input
-                type="file"
+                type="text"
                 className="form-control"
                 id="picture"
                 name="picture"
