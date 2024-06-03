@@ -66,10 +66,11 @@ const Login = () => {
                 value={formData.password}
               />
             </div>
-
-            <button type="submit" className="btn btn-primary">
-              Login
-            </button>
+            <div className="d-flex justify-content-center mt-5">
+              <button type="submit" className=" btn style-btn ">
+                Login
+              </button>
+            </div>
           </form>
         </Col>
       </Row>

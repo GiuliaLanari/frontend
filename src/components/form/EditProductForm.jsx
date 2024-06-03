@@ -1,12 +1,24 @@
 import axios from "axios";
+import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 import { useEffect, useState } from "react";
-
-import { Col, Container, Row } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 
-const NewProductForm = () => {
+const EditProductForm = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [img, setImg] = useState(null);
+  const [categories, setCategories] = useState([]);
+
+  const [formData, setFormData] = useState({
+    title: "",
+    picture: "",
+    description: "",
+    price: "",
+    category_id: "",
+  });
 
   useEffect(() => {
     axios
@@ -15,21 +27,34 @@ const NewProductForm = () => {
       .then((res) =>
         setFormData({
           title: res.data.data.title,
-          picture: res.data.data.picture === null ? "" : res.data.data.picture,
+          // picture: res.data.data.picture,
           description: res.data.data.description,
           price: res.data.data.price,
+          category_id: res.data.data.category_id,
         })
       );
 
     // .catch((err) => navigate("/"));
   }, [id]);
 
-  const [formData, setFormData] = useState({
-    title: "",
-    picture: "",
-    description: "",
-    price: "",
-  });
+  useEffect(() => {
+    fetch("/api/v1/category")
+      .then((res) => res.json())
+      .then((data) => setCategories(data.data));
+  }, []);
+
+  const updateImageField = (ev) => {
+    updateInputValue(ev);
+    setImg(ev.target.files[0]);
+  };
+  // const updateImageField = (ev) => {
+  //   updateInputValue(ev);
+  //   setImg((oldImg) => ({
+  //     ...oldImg,
+  //     picture: ev.target.value,
+  //   }));
+  //   setImg(ev.target.files[0]);
+  // };
 
   const updateInputValue = (ev) => {
     setFormData((oldFormData) => ({
@@ -38,12 +63,24 @@ const NewProductForm = () => {
     }));
   };
 
-  const submitLogin = (ev) => {
+  const submitForm = (ev) => {
     ev.preventDefault();
 
     axios
       .get("/sanctum/csrf-cookie")
-      .then(() => axios.put(`/api/v1/products/${id}/edit`, formData))
+      .then(() => {
+        const body = new FormData();
+        body.append("title", formData.title);
+        body.append("description", formData.description);
+        body.append("price", formData.price);
+        body.append("category_id", formData.category_id);
+        if (img) {
+          body.append("picture", img);
+        }
+
+        return axios.post(`/api/v1/products/${id}/edit`, body);
+      })
+
       .then((res) => {
         navigate("/");
       });
@@ -53,14 +90,14 @@ const NewProductForm = () => {
     <Container>
       <Row>
         <Col xs={12} md={5} className="mx-auto my-5">
-          <h1>New product</h1>
-          <form onSubmit={(ev) => submitLogin(ev)} noValidate>
+          <h1>Edit product</h1>
+          <form onSubmit={(ev) => submitForm(ev)} noValidate>
             <div className="mb-3">
               <label htmlFor="title" className="form-label">
                 Name Product
               </label>
               <input
-                type="title"
+                type="text"
                 className="form-control"
                 id="title"
                 name="title"
@@ -73,12 +110,12 @@ const NewProductForm = () => {
                 Picture
               </label>
               <input
-                type="picture"
+                type="file"
                 className="form-control"
                 id="picture"
                 name="picture"
-                onChange={(ev) => updateInputValue(ev)}
-                value={formData.picture}
+                onChange={(ev) => updateImageField(ev)}
+                // value={formData.picture}
               />
             </div>
             <div className="mb-3">
@@ -86,7 +123,7 @@ const NewProductForm = () => {
                 Description
               </label>
               <input
-                type="description"
+                type="text"
                 className="form-control"
                 id="description"
                 name="description"
@@ -99,7 +136,7 @@ const NewProductForm = () => {
                 Price
               </label>
               <input
-                type="price"
+                type="number"
                 className="form-control"
                 id="price"
                 name="price"
@@ -107,10 +144,30 @@ const NewProductForm = () => {
                 value={formData.price}
               />
             </div>
+            <div className="mb-3">
+              <label htmlFor="category" className="form-label">
+                Category
+              </label>
 
-            <button type="submit" className="btn btn-primary">
-              Add new Product
-            </button>
+              <Form.Select
+                id="category_id"
+                name="category_id"
+                onChange={(ev) => updateInputValue(ev)}
+                value={formData.category_id}
+              >
+                {categories.map((category) => (
+                  <option key={category.id} value={category.id}>
+                    {category.name}
+                  </option>
+                ))}
+              </Form.Select>
+            </div>
+
+            <div className="d-flex justify-content-center mt-5">
+              <button type="submit" className="btn style-btn">
+                Edit Product
+              </button>
+            </div>
           </form>
         </Col>
       </Row>
@@ -118,4 +175,4 @@ const NewProductForm = () => {
   );
 };
 
-export default NewProductForm;
+export default EditProductForm;

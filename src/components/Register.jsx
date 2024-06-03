@@ -41,6 +41,7 @@ const Register = () => {
     <Container>
       <Row>
         <Col xs={12} md={5} className="mx-auto my-5">
+          <h1>Register</h1>
           <form onSubmit={(ev) => submitLogin(ev)} noValidate>
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
@@ -107,9 +108,12 @@ const Register = () => {
                 value={formData.password_confirmation}
               />
             </div>
-            <button type="submit" className="btn btn-primary">
-              Register
-            </button>
+
+            <div className="d-flex justify-content-center mt-5">
+              <button type="submit" className="btn style-btn">
+                Register
+              </button>
+            </div>
           </form>
         </Col>
       </Row>

@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
 
 const NewProductForm = () => {
   const [formData, setFormData] = useState({
@@ -8,7 +9,22 @@ const NewProductForm = () => {
     picture: "",
     description: "",
     price: "",
+    category_id: "",
   });
+
+  const [categories, setCategories] = useState([]);
+  const [img, setImg] = useState(null);
+
+  useEffect(() => {
+    fetch("/api/v1/category")
+      .then((res) => res.json())
+      .then((data) => setCategories(data.data));
+  }, []);
+
+  const updateImageField = (ev) => {
+    updateInputValue(ev);
+    setImg(ev.target.files[0]);
+  };
 
   const updateInputValue = (ev) => {
     setFormData((oldFormData) => ({
@@ -22,14 +38,23 @@ const NewProductForm = () => {
 
     axios
       .get("/sanctum/csrf-cookie")
-      .then(() => axios.post("/api/v1/products/add", formData))
+      .then(() => {
+        const body = new FormData();
+        body.append("title", formData.title);
+        body.append("description", formData.description);
+        body.append("price", formData.price);
+        body.append("category_id", formData.category_id);
+        body.append("picture", img);
+
+        axios.post("/api/v1/products/add", body);
+      })
       .then((res) => {
         setFormData({
           title: "",
           picture: "",
           description: "",
           price: "",
-          // category_id: "",
+          category_id: "",
         });
       });
   };
@@ -58,11 +83,11 @@ const NewProductForm = () => {
                 Picture
               </label>
               <input
-                type="text"
+                type="file"
                 className="form-control"
                 id="picture"
                 name="picture"
-                onChange={(ev) => updateInputValue(ev)}
+                onChange={(ev) => updateImageField(ev)}
                 value={formData.picture}
               />
             </div>
@@ -92,10 +117,30 @@ const NewProductForm = () => {
                 value={formData.price}
               />
             </div>
+            <div className="mb-3">
+              <label htmlFor="category" className="form-label">
+                Category
+              </label>
 
-            <button type="submit" className="btn btn-primary">
-              Add new Product
-            </button>
+              <Form.Select
+                id="category_id"
+                name="category_id"
+                onChange={(ev) => updateInputValue(ev)}
+                value={formData.category_id}
+              >
+                {categories.map((category) => (
+                  <option key={category.id} value={category.id}>
+                    {category.name}
+                  </option>
+                ))}
+              </Form.Select>
+            </div>
+
+            <div className="d-flex justify-content-center mt-5">
+              <button type="submit" className=" btn style-btn">
+                Add new Product
+              </button>
+            </div>
           </form>
         </Col>
       </Row>

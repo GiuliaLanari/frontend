@@ -22,6 +22,7 @@ import OrderAdmin from "./components/OrderAdmin";
 import OrderClient from "./components/OrderClient";
 import OrderDettail from "./components/OrderDettail";
 import Cart from "./components/Cart";
+import MyFooter from "./components/MyFooter";
 
 function App() {
   axios.defaults.withCredentials = true;
@@ -75,6 +76,8 @@ function App() {
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<Navigate to="/404" />} />
         </Routes>
+
+        <MyFooter />
       </BrowserRouter>
     </>
   );

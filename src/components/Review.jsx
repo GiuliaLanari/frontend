@@ -1,7 +1,7 @@
-import { Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
 // import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
 import axios from "axios";

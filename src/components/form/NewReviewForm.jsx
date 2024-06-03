@@ -64,10 +64,11 @@ const NewProductForm = () => {
                 value={formData.comment}
               />
             </div>
-
-            <button type="submit" className="btn btn-primary">
-              Add new Review
-            </button>
+            <div className="d-flex justify-content-center mt-5">
+              <button type="submit" className="btn style-btn">
+                Add new Review
+              </button>
+            </div>
           </form>
         </Col>
       </Row>

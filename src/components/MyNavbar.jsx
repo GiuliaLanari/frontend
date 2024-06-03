@@ -21,22 +21,23 @@ const MyNavbar = () => {
   };
 
   return (
-    <Navbar expand="md" className="bg-body-tertiary">
+    <Navbar expand="md" bg="dark" data-bs-theme="dark" className="text-white">
       <Container>
-        <Link to="/" className="nav-link">
+        <Link to="/" className="nav-link linkHover">
           PlusArt
         </Link>
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
+          <Nav className="mx-auto">
             {/* se sei un CLIENT */}
 
             {user && user.role === "client" ? (
               <>
-                <Link to="/cart" className="nav-link">
+                <Link to="/cart" className="nav-link linkHover mx-5">
                   Cart
                 </Link>
-                <Link className="nav-link" to={`/myOrders`}>
+                <Link className="nav-link linkHover mx-5" to={`/myOrders`}>
                   Orders
                 </Link>
               </>
@@ -47,10 +48,10 @@ const MyNavbar = () => {
             {/* se è un ADMIN */}
             {user && user.role === "admin" ? (
               <>
-                <Link to="/products/add" className="nav-link">
+                <Link to="/products/add" className="nav-link linkHover">
                   Add Product
                 </Link>
-                <Link className="nav-link" to={`/orders`}>
+                <Link className="nav-link linkHover" to={`/orders`}>
                   Orders
                 </Link>
               </>
@@ -58,31 +59,30 @@ const MyNavbar = () => {
               ""
             )}
 
-            <Link to="/reviews" className="nav-link">
+            <Link to="/reviews" className="nav-link linkHover">
               Reviews
             </Link>
-
-            {user ? (
-              <>
-                <span className="nav-link me-2">
-                  {user.name} {user.surname}
-                </span>
-                <button className="nav-link" onClick={logout}>
-                  Logout
-                </button>
-              </>
-            ) : (
-              <>
-                <Link className="nav-link" to="/login">
-                  Login
-                </Link>
-                <Link className="nav-link" to="/register">
-                  Register
-                </Link>
-              </>
-            )}
           </Nav>
         </Navbar.Collapse>
+        {user ? (
+          <>
+            <span className="nav-link me-5">
+              {user.name} {user.surname}
+            </span>
+            <button className="nav-link linkHover" onClick={logout}>
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link className="nav-link linkHover me-2" to="/login">
+              Login
+            </Link>
+            <Link className="nav-link linkHover" to="/register">
+              Register
+            </Link>
+          </>
+        )}
       </Container>
     </Navbar>
   );

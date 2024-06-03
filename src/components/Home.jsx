@@ -16,7 +16,7 @@ const Home = () => {
   useEffect(() => {
     fetch("/api/v1/products")
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => setProducts(data.data));
   }, []);
 
   const deleteProduct = (id) => {
@@ -29,11 +29,7 @@ const Home = () => {
   };
 
   const addCart = (id) => {
-    axios
-      .post(`/api/v1/carts/${id}/add`, {
-        // quantity: 1,
-      })
-      .then((res) => setCart(res));
+    axios.post(`/api/v1/carts/${id}/add`).then((res) => setCart(res));
   };
 
   return (
