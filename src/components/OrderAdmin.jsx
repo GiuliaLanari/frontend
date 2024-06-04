@@ -8,7 +8,6 @@ import Button from "react-bootstrap/Button";
 const OrderAdmin = () => {
   const [orders, setOrders] = useState([]);
   const user = useSelector((state) => state.user);
-  // const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`/api/v1/orders`)

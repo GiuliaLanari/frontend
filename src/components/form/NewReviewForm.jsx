@@ -1,9 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
-const NewProductForm = () => {
+const NewReviewForm = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -37,13 +41,13 @@ const NewProductForm = () => {
       <Row>
         <Col xs={12} md={5} className="mx-auto my-5">
           <h1>New review</h1>
-          <form onSubmit={(ev) => submitLogin(ev)} noValidate>
+          {/* <form onSubmit={(ev) => submitLogin(ev)} noValidate>
             <div className="mb-3">
               <label htmlFor="rating" className="form-label">
                 Rating
               </label>
               <input
-                type="rating"
+                type="number"
                 className="form-control"
                 id="rating"
                 name="rating"
@@ -69,11 +73,47 @@ const NewProductForm = () => {
                 Add new Review
               </button>
             </div>
-          </form>
+          </form> */}
+          <Form noValidate onSubmit={(ev) => submitLogin(ev)}>
+            <Row className="mb-3">
+              <Form.Group as={Col} md="12" controlId="rating">
+                <Form.Label>Rating</Form.Label>
+                <Form.Control
+                  required
+                  type="number"
+                  placeholder="Rating"
+                  // id="rating"
+                  name="rating"
+                  onChange={(ev) => updateInputValue(ev)}
+                  value={formData.rating}
+                />
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group as={Col} md="12" controlId="comment">
+                <Form.Label>Comment</Form.Label>
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder="Comment"
+                  // id="comment"
+                  name="comment"
+                  onChange={(ev) => updateInputValue(ev)}
+                  value={formData.comment}
+                />
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+              </Form.Group>
+            </Row>
+            <div className="d-flex justify-content-center mt-5">
+              <Button type="submit" className="style-btn">
+                Login
+              </Button>
+            </div>
+          </Form>
         </Col>
       </Row>
     </Container>
   );
 };
 
-export default NewProductForm;
+export default NewReviewForm;

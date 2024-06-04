@@ -1,7 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 const NewProductForm = () => {
   const [formData, setFormData] = useState({
@@ -64,7 +67,7 @@ const NewProductForm = () => {
       <Row>
         <Col xs={12} md={5} className="mx-auto my-5">
           <h1>New product</h1>
-          <form onSubmit={(ev) => submitLogin(ev)} noValidate>
+          {/* <form onSubmit={(ev) => submitLogin(ev)} noValidate>
             <div className="mb-3">
               <label htmlFor="title" className="form-label">
                 Name Product
@@ -141,7 +144,85 @@ const NewProductForm = () => {
                 Add new Product
               </button>
             </div>
-          </form>
+          </form> */}
+          <Form noValidate onSubmit={(ev) => submitLogin(ev)}>
+            <Row className="mb-3">
+              <Form.Group as={Col} md="12" controlId="title">
+                <Form.Label>Name Product</Form.Label>
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder="Name Product"
+                  // id="title"
+                  name="title"
+                  onChange={(ev) => updateInputValue(ev)}
+                  value={formData.title}
+                />
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group as={Col} md="12" controlId="picture">
+                <Form.Label>Picture</Form.Label>
+                <Form.Control
+                  required
+                  type="file"
+                  placeholder="Last name"
+                  // id="picture"
+                  name="picture"
+                  onChange={(ev) => updateImageField(ev)}
+                  value={formData.picture}
+                />
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group as={Col} md="12" controlId="description">
+                <Form.Label>Description</Form.Label>
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder="Description"
+                  // id="description"
+                  name="description"
+                  onChange={(ev) => updateInputValue(ev)}
+                  value={formData.description}
+                />
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group as={Col} md="12" controlId="price">
+                <Form.Label>Price</Form.Label>
+                <Form.Control
+                  required
+                  type="number"
+                  placeholder="price"
+                  // id="price"
+                  name="price"
+                  onChange={(ev) => updateInputValue(ev)}
+                  value={formData.price}
+                />
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group as={Col} md="12" controlId="category">
+                <Form.Label>Category</Form.Label>
+
+                <Form.Select
+                  // id="category_id"
+                  name="category_id"
+                  onChange={(ev) => updateInputValue(ev)}
+                  value={formData.category_id}
+                >
+                  {categories.map((category) => (
+                    <option key={category.id} value={category.id}>
+                      {category.name}
+                    </option>
+                  ))}
+                </Form.Select>
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+              </Form.Group>
+            </Row>
+            <div className="d-flex justify-content-center mt-5">
+              <Button type="submit" className="style-btn">
+                Add new Product
+              </Button>
+            </div>
+          </Form>
         </Col>
       </Row>
     </Container>
