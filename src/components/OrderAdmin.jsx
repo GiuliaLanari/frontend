@@ -1,9 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Container from "react-bootstrap/Container";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import { FaTrash } from "react-icons/fa";
 
 const OrderAdmin = () => {
   const [orders, setOrders] = useState([]);
@@ -28,32 +31,47 @@ const OrderAdmin = () => {
 
   return (
     <Container>
-      {user && user.role === "admin"
-        ? orders.map((order) => (
-            <div key={order.id}>
-              <h4>Ordine id: {order.id}</h4>
-              <p>
-                Totale Ordine:{" "}
-                {order.products.reduce((total, product) => total + product.pivot.price * product.pivot.quantity, 0)}
-              </p>
-              {order.products.map((product) => (
-                <div key={product.id}>
-                  <p>Nome prodotto: {product.title}</p>
-                  <p>Quantità: {product.pivot.quantity}</p>
+      <Row className="my-5">
+        {user && user.role === "admin"
+          ? orders.map((order) => (
+              <Col xs={12} md={4} key={order.id} className="border-order">
+                <div className="border-order2">
+                  <div>
+                    <h4>Order code: {order.id}</h4>
+                    {order.products.map((product) => (
+                      <div key={product.id}>
+                        <p>Name Product: {product.title}</p>
+                        <p>Quantity: {product.pivot.quantity}</p>
+                      </div>
+                    ))}
+
+                    <p>
+                      Totale Ordine: £{" "}
+                      {order.products.reduce(
+                        (total, product) => total + product.pivot.price * product.pivot.quantity,
+                        0
+                      )}
+                    </p>
+                  </div>
+
+                  <div className="d-flex justify-content-between align-items-center">
+                    <Link to={`/orders/${order.id}`} className="dettails-link">
+                      Dettails
+                    </Link>
+                    <Button
+                      onClick={() => {
+                        deleteProduct(order.id);
+                      }}
+                      variant="danger mx-1"
+                    >
+                      <FaTrash />
+                    </Button>
+                  </div>
                 </div>
-              ))}
-              <Link to={`/orders/${order.id}`}>Dettagli</Link>
-              <Button
-                onClick={() => {
-                  deleteProduct(order.id);
-                }}
-                variant="danger mx-1"
-              >
-                Delete
-              </Button>
-            </div>
-          ))
-        : ""}
+              </Col>
+            ))
+          : ""}
+      </Row>
     </Container>
   );
 };

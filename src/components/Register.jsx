@@ -194,7 +194,6 @@ const Register = () => {
               </Button>
             </div>
           </Form>
-          ;
         </Col>
       </Row>
     </Container>

@@ -31,10 +31,38 @@
 .style-btn {
   background-color: #59c9b4;
   color: #212529;
+  border: none;
 }
 .style-btn:hover {
   /* background-color: #59bcc9;
   color: #212529; */
   background-color: #212529;
   color: #59c9b4;
+  border: none;
+}
+
+.border-order {
+  border: solid #21252973;
+  border-radius: 24px;
+  margin-inline: 0.8rem;
+  padding: 8px;
+}
+
+.border-order2 {
+  border: solid #21252973;
+  padding: 1rem;
+  border-radius: 16px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dettails-link {
+  text-decoration: none;
+  color: #212529;
+  font-weight: bolder;
+}
+.dettails-link:hover {
+  text-decoration: underline;
 }

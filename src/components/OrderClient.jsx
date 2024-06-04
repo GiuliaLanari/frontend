@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const OrderClient = () => {
   const user = useSelector((state) => state.user);
@@ -16,23 +18,27 @@ const OrderClient = () => {
 
   return (
     <Container>
-      {user && user.role === "client"
-        ? orders.map((order) => (
-            <div key={order.id}>
-              <h4>Ordine id: {order.id}</h4>
-              <p>
-                Totale Ordine:{" "}
-                {order.products.reduce((total, product) => total + product.pivot.price * product.pivot.quantity, 0)}
-              </p>
-              {order.products.map((product) => (
-                <div key={product.id}>
-                  <p>Nome prodotto: {product.title}</p>
-                  <p>Quantità: {product.pivot.quantity}</p>
+      <Row className="my-5">
+        <Col>
+          {user && user.role === "client"
+            ? orders.map((order) => (
+                <div key={order.id}>
+                  <h4>Ordine id: {order.id}</h4>
+                  <p>
+                    Totale Ordine:{" "}
+                    {order.products.reduce((total, product) => total + product.pivot.price * product.pivot.quantity, 0)}
+                  </p>
+                  {order.products.map((product) => (
+                    <div key={product.id}>
+                      <p>Nome prodotto: {product.title}</p>
+                      <p>Quantità: {product.pivot.quantity}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          ))
-        : "Non ci sono ordini"}
+              ))
+            : "Non ci sono ordini"}
+        </Col>
+      </Row>
     </Container>
   );
 };
