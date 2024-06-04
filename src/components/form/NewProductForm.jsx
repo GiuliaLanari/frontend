@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -15,13 +16,23 @@ const NewProductForm = () => {
     category_id: "",
   });
 
+  const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [img, setImg] = useState(null);
 
   useEffect(() => {
     fetch("/api/v1/category")
-      .then((res) => res.json())
-      .then((data) => setCategories(data.data));
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("Trouble uploading");
+        }
+      })
+      .then((data) => setCategories(data.data))
+      .catch((error) => {
+        console.log("ERRORE", error);
+      });
   }, []);
 
   const updateImageField = (ev) => {
@@ -36,11 +47,12 @@ const NewProductForm = () => {
     }));
   };
 
-  const submitLogin = (ev) => {
+  const submitForm = (ev) => {
     ev.preventDefault();
 
     axios
       .get("/sanctum/csrf-cookie")
+
       .then(() => {
         const body = new FormData();
         body.append("title", formData.title);
@@ -52,13 +64,11 @@ const NewProductForm = () => {
         axios.post("/api/v1/products/add", body);
       })
       .then((res) => {
-        setFormData({
-          title: "",
-          picture: "",
-          description: "",
-          price: "",
-          category_id: "",
-        });
+        window.alert("The product has been inserted correctly!");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log("ERRORE", error);
       });
   };
 
@@ -145,7 +155,7 @@ const NewProductForm = () => {
               </button>
             </div>
           </form> */}
-          <Form noValidate onSubmit={(ev) => submitLogin(ev)}>
+          <Form noValidate onSubmit={(ev) => submitForm(ev)}>
             <Row className="mb-3">
               <Form.Group as={Col} md="12" controlId="title">
                 <Form.Label>Name Product</Form.Label>
@@ -169,7 +179,7 @@ const NewProductForm = () => {
                   // id="picture"
                   name="picture"
                   onChange={(ev) => updateImageField(ev)}
-                  value={formData.picture}
+                  // value={formData.picture}
                 />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               </Form.Group>
