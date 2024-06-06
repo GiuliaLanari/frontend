@@ -5,7 +5,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 
 const NewProductForm = () => {
   const [formData, setFormData] = useState({
@@ -228,9 +227,9 @@ const NewProductForm = () => {
               </Form.Group>
             </Row>
             <div className="d-flex justify-content-center mt-5">
-              <Button type="submit" className="style-btn">
+              <button type="submit" className="style-btn">
                 Add new Product
-              </Button>
+              </button>
             </div>
           </Form>
         </Col>

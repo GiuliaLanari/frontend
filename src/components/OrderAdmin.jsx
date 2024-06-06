@@ -31,10 +31,10 @@ const OrderAdmin = () => {
 
   return (
     <Container>
-      <Row className="my-5">
+      <Row>
         {user && user.role === "admin"
           ? orders.map((order) => (
-              <Col xs={12} md={4} key={order.id} className="border-order">
+              <Col xs={12} md={4} key={order.id} className="border-order my-5 mx-auto">
                 <div className="border-order2">
                   <div>
                     <h4>Order code: {order.id}</h4>
@@ -46,7 +46,7 @@ const OrderAdmin = () => {
                     ))}
 
                     <p>
-                      Totale Ordine: £{" "}
+                      Tot Order: £{" "}
                       {order.products.reduce(
                         (total, product) => total + product.pivot.price * product.pivot.quantity,
                         0

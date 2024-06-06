@@ -2,6 +2,9 @@ import axios from "axios";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { FaOpencart } from "react-icons/fa";
+import { GrNotes } from "react-icons/gr";
+import { MdOutlineReviews } from "react-icons/md";
 
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -35,9 +38,11 @@ const MyNavbar = () => {
             {user && user.role === "client" ? (
               <>
                 <Link to="/cart" className="nav-link linkHover mx-5">
+                  <FaOpencart className="f-navIcons" />
                   Cart
                 </Link>
                 <Link className="nav-link linkHover mx-5" to={`/myOrders`}>
+                  <GrNotes className="f-navIcons" />
                   Orders
                 </Link>
               </>
@@ -60,6 +65,7 @@ const MyNavbar = () => {
             )}
 
             <Link to="/reviews" className="nav-link linkHover">
+              <MdOutlineReviews className="f-navIcons" />
               Reviews
             </Link>
           </Nav>

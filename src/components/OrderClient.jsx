@@ -18,26 +18,34 @@ const OrderClient = () => {
 
   return (
     <Container>
-      <Row className="my-5">
-        <Col>
-          {user && user.role === "client"
-            ? orders.map((order) => (
-                <div key={order.id}>
-                  <h4>Ordine id: {order.id}</h4>
-                  <p>
-                    Totale Ordine:{" "}
-                    {order.products.reduce((total, product) => total + product.pivot.price * product.pivot.quantity, 0)}
-                  </p>
-                  {order.products.map((product) => (
-                    <div key={product.id}>
-                      <p>Nome prodotto: {product.title}</p>
-                      <p>Quantità: {product.pivot.quantity}</p>
-                    </div>
-                  ))}
+      <Row>
+        {user && user.role === "client"
+          ? orders.map((order) => (
+              <Col xs={12} md={4} key={order.id} className="border-order mx-auto my-5">
+                <div className="border-order2">
+                  <div>
+                    <h4>Order code: {order.id}</h4>
+
+                    {order.products.map((product) => (
+                      <div key={product.id}>
+                        <p>Name Product: {product.title}</p>
+                        <p>Quantity: {product.pivot.quantity}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="d-flex  justify-content-end ">
+                    <p className="tot-order">
+                      Tot Order: £{" "}
+                      {order.products.reduce(
+                        (total, product) => total + product.pivot.price * product.pivot.quantity,
+                        0
+                      )}
+                    </p>
+                  </div>
                 </div>
-              ))
-            : "Non ci sono ordini"}
-        </Col>
+              </Col>
+            ))
+          : "Non ci sono ordini"}
       </Row>
     </Container>
   );

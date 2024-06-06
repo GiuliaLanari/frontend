@@ -35,6 +35,7 @@ const Home = () => {
   return (
     <Container>
       <h1>Home page con prodotti</h1>
+
       {products.map((product) => (
         <div key={product.id}>
           <h2>{product.title}</h2>
