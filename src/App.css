@@ -132,7 +132,8 @@ body {
 /* PROVA HOME PAGE */
 
 .text {
-  background-image: url(https://images.pexels.com/photos/1789968/pexels-photo-1789968.jpeg);
+  /* background-image: url(https://images.pexels.com/photos/1789968/pexels-photo-1789968.jpeg); */
+  background-image: url("/public/assets/sfondo-home.jpeg");
   background-size: cover;
   background-clip: text;
   color: transparent;
