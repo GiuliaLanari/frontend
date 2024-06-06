@@ -37,7 +37,7 @@ const OrderAdmin = () => {
               <Col xs={12} md={4} key={order.id} className="border-order my-5 mx-auto">
                 <div className="border-order2">
                   <div>
-                    <h4>Order code: {order.id}</h4>
+                    <h4 className="num-order">Order code: {order.id}</h4>
                     {order.products.map((product) => (
                       <div key={product.id}>
                         <p>Name Product: {product.title}</p>
@@ -45,7 +45,7 @@ const OrderAdmin = () => {
                       </div>
                     ))}
 
-                    <p>
+                    <p className="tot-order">
                       Tot Order: £{" "}
                       {order.products.reduce(
                         (total, product) => total + product.pivot.price * product.pivot.quantity,
@@ -62,7 +62,7 @@ const OrderAdmin = () => {
                       onClick={() => {
                         deleteProduct(order.id);
                       }}
-                      variant="danger mx-1"
+                      className="style-btn-delete"
                     >
                       <FaTrash />
                     </Button>
