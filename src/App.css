@@ -1,7 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
 .linkHover:hover {
   color: #59c9b4;
   box-shadow: 0 0 50px #59c9b462, 0 0 25px #59c9b4, 0 0 50px #59c9b4, 0 0 50px #59c9b4, 0 0 200px #59c9b4;
   /* text-decoration: underline; */
+}
+
+.f-logo {
+  width: 10rem;
 }
 
 .f-navIcons {

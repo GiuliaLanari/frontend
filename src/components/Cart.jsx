@@ -59,15 +59,15 @@ const Cart = () => {
                       </Col>
                     ))}
                     <Col className="text-end">
-                      <Button
+                      <button
                         onClick={() => {
                           deleteProduct(obj.id);
                         }}
-                        variant="danger mx-1"
+                        className="style-btn-delete me-3"
                       >
                         <FaTrash className="me-2" />
                         Delete all cart
-                      </Button>
+                      </button>
                       <button
                         onClick={() => {
                           buyCart();

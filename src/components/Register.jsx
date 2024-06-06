@@ -18,6 +18,8 @@ const Register = () => {
     password_confirmation: "",
   });
 
+  // const [errors, setErrors] = useState(null);
+
   const updateInputValue = (ev) => {
     setFormData((oldFormData) => ({
       ...oldFormData,
@@ -38,6 +40,10 @@ const Register = () => {
           payload: res.data,
         });
       });
+    //  .catch((err) => {
+    //       console.log(err.response.data.errors);
+    //       setErrors(err.response.data.errors);
+    //   });
   };
 
   return (

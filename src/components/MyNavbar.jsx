@@ -27,6 +27,7 @@ const MyNavbar = () => {
     <Navbar expand="md" bg="dark" data-bs-theme="dark" className="text-white">
       <Container>
         <Link to="/" className="nav-link linkHover">
+          {/* <img src="assets/logo.png" alt="logo" className="f-logo" /> */}
           PlusArt
         </Link>
 
@@ -81,7 +82,7 @@ const MyNavbar = () => {
           </>
         ) : (
           <>
-            <Link className="nav-link linkHover me-2" to="/login">
+            <Link className="nav-link linkHover me-4" to="/login">
               Login
             </Link>
             <Link className="nav-link linkHover" to="/register">

@@ -28,6 +28,9 @@ const Home = () => {
 
       .then((res) => {
         window.location.reload("/");
+      })
+      .catch((error) => {
+        console.log("ERRORE", error);
       });
   };
 
