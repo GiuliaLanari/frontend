@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 
@@ -33,14 +35,17 @@ const Home = () => {
   };
 
   return (
-    <Container>
-      <h1>Home page con prodotti</h1>
+    <Container fluid>
+      <Row>
+        <Col xs={12} className="bg-black">
+          <h1 className=" text ">...PlusArt...</h1>
+        </Col>
+      </Row>
 
       {products.map((product) => (
         <div key={product.id}>
           <h2>{product.title}</h2>
-          {/* img recupero */}
-          <img src={product.picture} alt={product.title} />
+          <img src={product.picture} alt={product.title} className="w-25" />
           <Link to={`/products/${product.id}`}>Dettagli</Link>
 
           {/* in caso del cliente ⬇ */}

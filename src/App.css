@@ -93,3 +93,16 @@
   overflow: hidden;
   margin-block-end: 0.5rem;
 }
+
+/* PROVA HOME PAGE */
+
+.text {
+  background-image: url(https://images.pexels.com/photos/1279813/pexels-photo-1279813.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-size: cover;
+  background-clip: text;
+  color: transparent;
+  font-size: 15rem;
+  font-weight: bolder;
+  text-align: center;
+  padding-block: 2rem;
+}

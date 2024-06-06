@@ -20,6 +20,7 @@ const Product = () => {
     product && (
       <Container>
         <h1>{product.title}</h1>
+        {/* <img src={product.picture} alt={product.title} /> */}
         <p>{product.description}</p>
         <p>£ {product.price}</p>
       </Container>
