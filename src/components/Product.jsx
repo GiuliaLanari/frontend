@@ -38,6 +38,7 @@ const Product = () => {
         setLoading(false);
         navigate("/404");
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
   console.log(product);
 
