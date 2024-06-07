@@ -18,7 +18,7 @@ const Register = () => {
     password_confirmation: "",
   });
 
-  // const [errors, setErrors] = useState(null);
+  const [errors, setErrors] = useState(null);
 
   const updateInputValue = (ev) => {
     setFormData((oldFormData) => ({
@@ -39,16 +39,24 @@ const Register = () => {
           type: LOGIN,
           payload: res.data,
         });
+      })
+      .catch((err) => {
+        console.log(err.response.data.errors);
+        setErrors(err.response.data.errors);
       });
-    //  .catch((err) => {
-    //       console.log(err.response.data.errors);
-    //       setErrors(err.response.data.errors);
-    //   });
   };
 
   return (
     <Container>
       <Row>
+        {errors && (
+          <div className="alert alert-danger mt-4">
+            {Object.keys(errors).map((key) => (
+              <div key={key}>{errors[key]}</div>
+            ))}
+          </div>
+        )}
+
         <Col xs={12} md={5} className="mx-auto my-5">
           <h1>Register</h1>
           {/* <form onSubmit={(ev) => submitLogin(ev)} noValidate>
