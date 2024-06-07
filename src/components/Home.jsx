@@ -69,7 +69,7 @@ const Home = () => {
   return (
     <Container fluid>
       <Row>
-        <Col xs={12} className="bg-black">
+        <Col xs={12} className="bg-black py-4">
           <h1 className=" text ">PlusArt</h1>
         </Col>
         {loading ? (
@@ -80,9 +80,9 @@ const Home = () => {
           </div>
         ) : (
           <Col xs={12}>
-            <Row className="my-5">
+            <Row className="my-3">
               {products.map((product) => (
-                <Col xs={12} md={4} className="text-center my-5" key={product.id}>
+                <Col xs={12} md={4} className="text-center my-5 py-4 box-img" key={product.id}>
                   <div>
                     <h2>{product.title}</h2>
                     <img

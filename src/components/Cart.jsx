@@ -143,7 +143,7 @@ const Cart = () => {
       .delete(`/api/v1/carts/${id}`)
       .then((res) => {
         setMessage("Cart deleted successfully");
-        window.location.reload();
+        navigate("/");
       })
       .catch((error) => {
         setMessage("Failed to delete the cart. Please try again.");

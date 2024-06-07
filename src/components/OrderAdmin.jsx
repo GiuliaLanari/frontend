@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -14,6 +15,8 @@ const OrderAdmin = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
+
   const user = useSelector((state) => state.user);
 
   useEffect(() => {
@@ -44,7 +47,8 @@ const OrderAdmin = () => {
 
       .then((res) => {
         setMessage("Order deleted successfully");
-        window.location.reload("/orders");
+        // window.location.reload("/orders");
+        navigate("/");
       })
       .catch((error) => {
         setError(error.message);
@@ -88,14 +92,14 @@ const OrderAdmin = () => {
                       <Link to={`/orders/${order.id}`} className="dettails-link">
                         Dettails
                       </Link>
-                      <Button
+                      <button
                         onClick={() => {
                           deleteProduct(order.id);
                         }}
                         className="style-btn-delete"
                       >
                         <FaTrash />
-                      </Button>
+                      </button>
                     </div>
                   </div>
                 </Col>

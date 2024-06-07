@@ -44,10 +44,10 @@ const OrderClient = () => {
           Error: {error}
         </div>
       ) : (
-        <Row>
+        <Row className="justify-content-around">
           {user && user.role === "client"
             ? orders.map((order) => (
-                <Col xs={12} md={4} key={order.id} className="border-order mx-auto my-5">
+                <Col xs={12} md={4} key={order.id} className="border-order mx-2 my-5">
                   <div className="border-order2">
                     <div>
                       <h4>Order code: {order.id}</h4>

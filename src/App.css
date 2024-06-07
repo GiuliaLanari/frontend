@@ -128,8 +128,6 @@ body {
   margin-block-end: 0.5rem;
 }
 
-/* PROVA HOME PAGE */
-
 .text {
   /* background-image: url(https://images.pexels.com/photos/1789968/pexels-photo-1789968.jpeg); */
   background-image: url("/public/assets/sfondo-home.jpeg");
@@ -140,4 +138,37 @@ body {
   font-weight: bolder;
   text-align: center;
   padding-block: 2rem;
+}
+
+.error-page {
+  background-color: black;
+  color: white;
+  margin-block-start: 3rem;
+  padding: 5rem;
+  border-radius: 10px;
+}
+
+.text-error {
+  background-image: url("/public/assets/sfondo-home.jpeg");
+  background-size: cover;
+  background-clip: text;
+  color: transparent;
+  font-size: 5rem;
+  font-weight: bolder;
+  text-align: center;
+  padding-block: 2rem;
+}
+.text-error2 {
+  margin-inline: 1rem;
+  color: white;
+}
+.text-error2:hover {
+  color: #59c9b4;
+  text-decoration: none;
+  box-shadow: 0 0 50px #59c9b462, 0 0 25px #59c9b4, 0 0 50px #59c9b4, 0 0 50px #59c9b4, 0 0 200px #59c9b4;
+}
+
+/* maybe--- */
+.box-img {
+  box-shadow: 5px 5px 50px 5px #000000;
 }

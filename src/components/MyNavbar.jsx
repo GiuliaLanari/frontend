@@ -19,11 +19,14 @@ const MyNavbar = () => {
     axios
       .post("/logout")
       .then(() => dispatch({ type: LOGOUT }))
-      .then(() => navigate("/"));
+      .then(() => navigate("/"))
+      .catch((error) => {
+        console.error("Logout failed:", error);
+      });
   };
 
   return (
-    <Navbar expand="md" bg="dark" data-bs-theme="dark" className="text-white">
+    <Navbar expand="md" bg="dark" data-bs-theme="dark" className="text-white py-2 sticky-top">
       <Container>
         <Link to="/" className="nav-link linkHover">
           {/* <img src="assets/logo.png" alt="logo" className="f-logo" /> */}
