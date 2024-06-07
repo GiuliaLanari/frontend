@@ -27,11 +27,12 @@ const Product = () => {
         if (!res.ok) {
           throw new Error("Network response was not ok");
         }
+
         return res.json();
       })
       .then((data) => {
-        setProduct(data.data);
         setLoading(false);
+        setProduct(data.data);
       })
       .catch((error) => {
         setLoading(false);

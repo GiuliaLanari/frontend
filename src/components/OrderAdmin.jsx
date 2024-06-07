@@ -45,6 +45,10 @@ const OrderAdmin = () => {
       .then((res) => {
         setMessage("Order deleted successfully");
         window.location.reload("/orders");
+      })
+      .catch((error) => {
+        setError(error.message);
+        setLoading(false);
       });
   };
 
@@ -57,13 +61,13 @@ const OrderAdmin = () => {
           Error: {error}
         </div>
       ) : (
-        <Row>
+        <Row className="justify-content-around">
           {user && user.role === "admin"
             ? orders.map((order) => (
-                <Col xs={12} md={4} key={order.id} className="border-order my-5 mx-auto">
+                <Col xs={12} md={4} key={order.id} className="border-order my-5 mx-2">
                   <div className="border-order2">
                     <div>
-                      <h4 className="border-order">Order code: {order.id}</h4>
+                      <h4 className="num-order">Order code: {order.id}</h4>
                       {order.products.map((product) => (
                         <div key={product.id}>
                           <p>Name Product: {product.title}</p>

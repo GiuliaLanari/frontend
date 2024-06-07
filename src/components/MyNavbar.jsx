@@ -5,7 +5,6 @@ import Navbar from "react-bootstrap/Navbar";
 import { FaOpencart } from "react-icons/fa";
 import { GrNotes } from "react-icons/gr";
 import { MdOutlineReviews } from "react-icons/md";
-
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { LOGOUT } from "../redux/actions";
@@ -20,7 +19,7 @@ const MyNavbar = () => {
     axios
       .post("/logout")
       .then(() => dispatch({ type: LOGOUT }))
-      .then(() => navigate("/login"));
+      .then(() => navigate("/"));
   };
 
   return (

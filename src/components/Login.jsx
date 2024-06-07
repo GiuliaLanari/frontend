@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { LOGIN } from "../redux/actions";
+import { useNavigate } from "react-router-dom";
 import Alert from "react-bootstrap/Alert";
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
@@ -11,13 +12,14 @@ import Form from "react-bootstrap/Form";
 
 const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState(false);
 
   const updateInputValue = (ev) => {
@@ -29,16 +31,12 @@ const Login = () => {
 
   const submitLogin = (ev) => {
     ev.preventDefault();
-
+    setLoading(true);
     axios
       .get("/sanctum/csrf-cookie")
       .then(() => axios.post("/login", formData))
       .then((res) => {
-        if (res.ok) {
-          return axios.get("/api/user"), setAlert(false), setLoading(false);
-        } else {
-          throw new Error("Login failed");
-        }
+        return axios.get("/api/user");
       })
       .then((res) => {
         setAlert(false);
@@ -48,12 +46,9 @@ const Login = () => {
           type: LOGIN,
           payload: res.data,
         });
+        navigate("/");
       })
-      // .catch((error) => {
-      //   // window.alert("errore nei dati");
-      //   // console.log("ERRORE", error);
-      //   setAlert(true);
-      // });
+
       .catch((error) => {
         setAlert(true);
         setLoading(false);
@@ -63,12 +58,14 @@ const Login = () => {
   return (
     <Container>
       <Row>
-        {loading ? (
-          <Spinner animation="grow" className="mx-auto mt-5" />
-        ) : alert ? (
+        {alert === true && (
           <Alert variant="danger" onClose={() => setAlert(false)} dismissible className="mt-5">
             <Alert.Heading>Credential errors</Alert.Heading>
           </Alert>
+        )}
+
+        {loading ? (
+          <Spinner animation="grow" className="mx-auto mt-5" />
         ) : (
           <Col xs={12} md={5} className="mx-auto my-5">
             <h1>Login</h1>
