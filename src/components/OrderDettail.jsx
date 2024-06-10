@@ -7,12 +7,14 @@ import Col from "react-bootstrap/Col";
 
 const OrderDettail = () => {
   const [order, setOrder] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
+    setLoading(true);
+
     fetch(`/api/v1/orders/${id}`)
       // .then((res) => {
       //   if (!res.ok) navigate("/404");
@@ -37,15 +39,16 @@ const OrderDettail = () => {
   }, [id]);
 
   return (
-    order && (
-      <Container>
-        {loading ? (
-          <Spinner animation="grow" className="mx-auto mt-5" />
-        ) : error ? (
-          <div class="alert alert-danger mt-5" role="alert">
-            Error: {error}
-          </div>
-        ) : (
+    // order && (
+    <Container>
+      {loading ? (
+        <Spinner animation="grow" className="mx-auto mt-5" />
+      ) : error ? (
+        <div class="alert alert-danger mt-5" role="alert">
+          Error: {error}
+        </div>
+      ) : (
+        order && (
           <Row>
             <Col xs={11} md={7} className="border-order my-5 mx-auto">
               <div className="border-order2">
@@ -71,10 +74,11 @@ const OrderDettail = () => {
               </div>
             </Col>
           </Row>
-        )}
-      </Container>
-    )
+        )
+      )}
+    </Container>
   );
+  // );
 };
 
 export default OrderDettail;

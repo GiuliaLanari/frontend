@@ -199,6 +199,24 @@ body {
   box-shadow: 5px 5px 50px 5px #000000;
 }
 
+.bg-login {
+  background-image: url("/public/assets/bg-login-register.jpeg");
+  object-fit: cover;
+  overflow: hidden;
+  margin-top: 4rem;
+  border-radius: 10px;
+  padding-block: 2rem;
+  background-repeat: no-repeat;
+}
+
+.form-container {
+  border: 2px solid white;
+  backdrop-filter: blur(10px);
+  padding-inline: 3rem;
+  padding-block: 2rem;
+  color: white;
+}
+
 /* MEDIA QUERY */
 
 @media screen and (max-width: 576px) {

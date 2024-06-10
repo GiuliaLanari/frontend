@@ -200,7 +200,7 @@ const Cart = () => {
                           }}
                           className="style-btn-delete m-btn-delete"
                         >
-                          <FaTrash />
+                          <FaTrash className="me-2 align-middle" />
                           Delete all cart
                         </button>
                         <button

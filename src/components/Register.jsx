@@ -47,7 +47,7 @@ const Register = () => {
   };
 
   return (
-    <Container>
+    <Container className="bg-login">
       <Row>
         {errors && (
           <div className="alert alert-danger mt-4">
@@ -57,7 +57,7 @@ const Register = () => {
           </div>
         )}
 
-        <Col xs={12} md={5} className="mx-auto my-5">
+        <Col xs={12} md={5} className="mx-auto my-5 form-container">
           <h1>Register</h1>
           {/* <form onSubmit={(ev) => submitLogin(ev)} noValidate>
             <div className="mb-3">

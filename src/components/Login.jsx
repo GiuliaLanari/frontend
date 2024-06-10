@@ -56,7 +56,7 @@ const Login = () => {
   };
 
   return (
-    <Container>
+    <Container className="bg-login">
       <Row>
         {alert === true && (
           <Alert variant="danger" onClose={() => setAlert(false)} dismissible className="mt-5">
@@ -65,9 +65,9 @@ const Login = () => {
         )}
 
         {loading ? (
-          <Spinner animation="grow" className="mx-auto mt-5" />
+          <Spinner animation="grow" className="mx-auto mt-5 mx-auto" />
         ) : (
-          <Col xs={12} md={5} className="mx-auto my-5">
+          <Col xs={12} md={5} className="mx-auto my-5 form-container">
             <h1>Login</h1>
             {/* <form onSubmit={(ev) => submitLogin(ev)} noValidate>
             <div className="mb-3">

@@ -44,11 +44,11 @@ const Product = () => {
   console.log(product);
 
   return (
-    product && (
-      <Container>
-        {loading ? (
-          <Spinner animation="grow" className="mx-auto mt-5" />
-        ) : (
+    <Container>
+      {loading ? (
+        <Spinner animation="grow" className="mx-auto mt-5 mx-auto" />
+      ) : (
+        product && (
           <Row>
             <Col xs={12} className="my-5">
               <Row>
@@ -82,9 +82,9 @@ const Product = () => {
               </Row>
             </Col>
           </Row>
-        )}
-      </Container>
-    )
+        )
+      )}
+    </Container>
   );
 };
 
