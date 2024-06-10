@@ -29,8 +29,7 @@ const MyNavbar = () => {
     <Navbar expand="md" bg="dark" data-bs-theme="dark" className="text-white py-2 sticky-top">
       <Container>
         <Link to="/" className="nav-link linkHover">
-          {/* <img src="assets/logo.png" alt="logo" className="f-logo" /> */}
-          PlusArt
+          <img src={"assets/logo.png"} alt="logo" className="f-logo" />
         </Link>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -40,11 +39,11 @@ const MyNavbar = () => {
 
             {user && user.role === "client" ? (
               <>
-                <Link to="/cart" className="nav-link linkHover mx-5">
+                <Link to="/cart" className="nav-link linkHover mobile-nav-cart">
                   <FaOpencart className="f-navIcons" />
                   Cart
                 </Link>
-                <Link className="nav-link linkHover mx-5" to={`/myOrders`}>
+                <Link className="nav-link linkHover mobile-nav-order" to={`/myOrders`}>
                   <GrNotes className="f-navIcons" />
                   Orders
                 </Link>
@@ -75,7 +74,7 @@ const MyNavbar = () => {
         </Navbar.Collapse>
         {user ? (
           <>
-            <span className="nav-link me-5">
+            <span className="nav-link me-5 mobile-nav">
               {user.name} {user.surname}
             </span>
             <button className="nav-link linkHover" onClick={logout}>

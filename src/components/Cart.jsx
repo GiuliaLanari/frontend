@@ -198,9 +198,9 @@ const Cart = () => {
                           onClick={() => {
                             deleteProduct(obj.id);
                           }}
-                          className="style-btn-delete me-3"
+                          className="style-btn-delete m-btn-delete"
                         >
-                          <FaTrash className="me-2" />
+                          <FaTrash />
                           Delete all cart
                         </button>
                         <button

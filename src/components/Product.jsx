@@ -7,11 +7,12 @@ import Col from "react-bootstrap/Col";
 
 const Product = () => {
   const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
+    setLoading(true);
     // fetch(`/api/v1/products/${id}`)
     //   .then((res) => {
     //     if (!res.ok) navigate("/404");
@@ -51,7 +52,7 @@ const Product = () => {
           <Row>
             <Col xs={12} className="my-5">
               <Row>
-                <Col xs={12} md={5}>
+                <Col xs={12} md={5} className="zoom-wrapper">
                   <img
                     src={process.env.REACT_APP_BACKEND_URL + "/" + product.picture}
                     alt={product.title}

@@ -83,8 +83,8 @@ const Home = () => {
             <Row className="my-3">
               {products.map((product) => (
                 <Col xs={12} md={4} className="text-center my-5 py-4 box-img" key={product.id}>
-                  <div>
-                    <h2>{product.title}</h2>
+                  <h2>{product.title}</h2>
+                  <div className="zoom-wrapper">
                     <img
                       src={process.env.REACT_APP_BACKEND_URL + "/" + product.picture}
                       alt={product.title}

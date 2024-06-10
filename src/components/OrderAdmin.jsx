@@ -67,7 +67,7 @@ const OrderAdmin = () => {
         <Row className="justify-content-around">
           {user && user.role === "admin"
             ? orders.map((order) => (
-                <Col xs={12} md={4} key={order.id} className="border-order my-5 mx-2">
+                <Col xs={11} md={4} key={order.id} className="border-order my-5 mx-2">
                   <div className="border-order2">
                     <div>
                       <h4 className="num-order">Order code: {order.id}</h4>

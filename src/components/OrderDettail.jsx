@@ -47,7 +47,7 @@ const OrderDettail = () => {
           </div>
         ) : (
           <Row>
-            <Col xs={12} md={7} className="border-order my-5 mx-auto">
+            <Col xs={11} md={7} className="border-order my-5 mx-auto">
               <div className="border-order2">
                 <h1 className="num-order">Order code: {order.id}</h1>
                 <p>Date: {new Date(order.created_at).toLocaleDateString()}</p>

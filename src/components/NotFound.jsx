@@ -8,7 +8,7 @@ const NotFound = () => {
   return (
     <Container fluid>
       <Row>
-        <Col xs={12} md={9} className="mx-auto  text-center error-page">
+        <Col xs={11} md={9} className="mx-auto  text-center error-page">
           <h1 className=" text-error">Error page</h1>
           <h3>
             go back to{" "}
