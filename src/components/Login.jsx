@@ -65,9 +65,9 @@ const Login = () => {
         )}
 
         {loading ? (
-          <Spinner animation="grow" className="mx-auto mt-5 mx-auto" />
+          <Spinner animation="grow" variant="light" className="mx-auto mt-5 mx-auto" />
         ) : (
-          <Col xs={12} md={5} className="mx-auto my-5 form-container">
+          <Col xs={11} md={5} className="mx-auto my-5 form-container">
             <h1>Login</h1>
             {/* <form onSubmit={(ev) => submitLogin(ev)} noValidate>
             <div className="mb-3">

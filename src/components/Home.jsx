@@ -69,7 +69,7 @@ const Home = () => {
   return (
     <Container fluid>
       <Row>
-        <Col xs={12} className="bg-black py-4">
+        <Col xs={12} className="bg-home py-4">
           <h1 className=" text ">PlusArt</h1>
         </Col>
         {loading ? (
