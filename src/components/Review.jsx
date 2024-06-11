@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 // import { useNavigate } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import { FaUserCircle } from "react-icons/fa";
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import Table from "react-bootstrap/Table";
+// import Table from "react-bootstrap/Table";
 import axios from "axios";
 
 const Review = () => {
@@ -30,6 +31,7 @@ const Review = () => {
         return res.json();
       })
       .then((data) => {
+        console.log(data);
         setReviews(data);
         setLoading(false);
       })
@@ -64,45 +66,80 @@ const Review = () => {
             Error: {error}
           </div>
         ) : (
-          <Col xs={12}>
-            <Table striped bordered hover>
-              <thead className="text-center ">
-                <tr>
-                  <th>User Name</th>
-                  <th>Title product</th>
-                  <th>Rating</th>
-                  <th>Comment</th>
-                  {user && user.name ? <th>Delete</th> : ""}
-                </tr>
-              </thead>
-              <tbody className="t-review">
-                {reviews.map((review) => (
-                  <tr key={review.id}>
-                    <td>{review.user.name}</td>
-                    <td>{review.product.title}</td>
-                    <td>{review.rating}</td>
-                    <td>{review.comment}</td>
-                    {user && user.name === review.user.name ? (
-                      <td>
-                        {" "}
-                        <Button
-                          onClick={() => {
-                            deleteProduct(review.id);
-                          }}
-                          variant="danger mx-1"
-                        >
-                          <FaTrash className="me-2" />
-                          Delete
-                        </Button>
-                      </td>
-                    ) : (
-                      ""
-                    )}
+          <>
+            {/* <Col xs={12}>
+              <Table striped bordered hover>
+                <thead className="text-center ">
+                  <tr>
+                    <th>User Name</th>
+                    <th>Title product</th>
+                    <th>Rating</th>
+                    <th>Comment</th>
+                    {user && user.name ? <th>Delete</th> : ""}
                   </tr>
+                </thead>
+                <tbody className="t-review">
+                  {reviews.map((review) => (
+                    <tr key={review.id}>
+                      <td>{review.user.name}</td>
+                      <td>{review.product.title}</td>
+                      <td>{review.rating}</td>
+                      <td>{review.comment}</td>
+                      {user && user.name === review.user.name ? (
+                        <td>
+                          {" "}
+                          <Button
+                            onClick={() => {
+                              deleteProduct(review.id);
+                            }}
+                            variant="danger mx-1"
+                          >
+                            <FaTrash className="me-2" />
+                            Delete
+                          </Button>
+                        </td>
+                      ) : (
+                        ""
+                      )}
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </Col> */}
+
+            <Col xs={12}>
+              <Row>
+                {reviews.map((review) => (
+                  <Col xs={8} md={4} lg={3} key={review.id} className="my-4">
+                    <div className="review-border">
+                      <p>
+                        <FaUserCircle className="f-navIcons" /> {review.user.name}
+                      </p>
+                      <img src={review.product.picture} alt={review.product.title} />
+                      <h6>Product: {review.product.title}</h6>
+                      <p>Rating: {review.rating}</p>
+                      <p>Comment: {review.comment}</p>
+                      {user && user.name === review.user.name ? (
+                        <div className="text-end">
+                          {" "}
+                          <Button
+                            onClick={() => {
+                              deleteProduct(review.id);
+                            }}
+                            variant="danger ms-auto"
+                          >
+                            <FaTrash />
+                          </Button>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  </Col>
                 ))}
-              </tbody>
-            </Table>
-          </Col>
+              </Row>
+            </Col>
+          </>
         )}
       </Row>
       {message && <p className="text-center mt-4">{message}</p>}

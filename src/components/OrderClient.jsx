@@ -50,7 +50,7 @@ const OrderClient = () => {
                 <Col xs={11} md={4} key={order.id} className="border-order mx-2 my-5">
                   <div className="border-order2">
                     <div>
-                      <h4>Order code: {order.id}</h4>
+                      <h4 className="num-order">Order code: {order.id}</h4>
 
                       {order.products.map((product) => (
                         <div key={product.id}>
