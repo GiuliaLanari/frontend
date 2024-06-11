@@ -116,9 +116,17 @@ const Review = () => {
                         <FaUserCircle className="f-navIcons" /> {review.user.name}
                       </p>
                       <img src={review.product.picture} alt={review.product.title} />
-                      <h6>Product: {review.product.title}</h6>
-                      <p>Rating: {review.rating}</p>
-                      <p>Comment: {review.comment}</p>
+                      <h6>
+                        <span className="fw-bold"> Product:</span> {review.product.title}
+                      </h6>
+                      <p>
+                        {" "}
+                        <span className="fw-bold">Rating:</span> {review.rating}
+                      </p>
+                      <p>
+                        {" "}
+                        <span className="fw-bold">Comment:</span> {review.comment}
+                      </p>
                       {user && user.name === review.user.name ? (
                         <div className="text-end">
                           {" "}
