@@ -175,7 +175,7 @@ const Cart = () => {
             Error: {error}
           </div>
         ) : (
-          <Col className="border-order">
+          <Col xs={11} md={12} className="border-order mx-auto">
             <Row className="my-3 mx-2">
               {user && user.role === "client"
                 ? cart.map((obj) => (
@@ -198,7 +198,7 @@ const Cart = () => {
                           onClick={() => {
                             deleteProduct(obj.id);
                           }}
-                          className="style-btn-delete m-btn-delete"
+                          className="style-btn-delete m-btn-delete me-2"
                         >
                           <FaTrash className="me-2 align-middle" />
                           Delete all cart

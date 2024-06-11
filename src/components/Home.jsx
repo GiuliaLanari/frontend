@@ -80,61 +80,63 @@ const Home = () => {
           </div>
         ) : (
           <Col xs={12}>
-            <Row className="my-3">
+            <Row className="my-5">
               {products.map((product) => (
-                <Col xs={12} md={4} className="text-center my-5 py-4 box-img" key={product.id}>
-                  <h2>{product.title}</h2>
-                  <div className="zoom-wrapper">
-                    <img
-                      src={process.env.REACT_APP_BACKEND_URL + "/" + product.picture}
-                      alt={product.title}
-                      className="w-50"
-                    />
-                  </div>
-                  <div className="d-flex flex-column align-items-center">
-                    <Link to={`/products/${product.id}`} className="dettails-link">
-                      Details
-                    </Link>
-
-                    {user && user.role === "client" ? (
-                      <button
-                        onClick={() => {
-                          addCart(product.id);
-                        }}
-                        className="style-btn my-3"
-                      >
-                        Add to cart
-                      </button>
-                    ) : (
-                      ""
-                    )}
-
-                    {user && user.role === "client" ? (
-                      <Link className="dettails-link" to={`/reviews/${product.id}/add`}>
-                        Add review
+                <Col xs={12} md={4} className="text-center my-2 py-4" key={product.id}>
+                  <div className="box-img p-4">
+                    <h2>{product.title}</h2>
+                    <div className="zoom-wrapper">
+                      <img
+                        src={process.env.REACT_APP_BACKEND_URL + "/" + product.picture}
+                        alt={product.title}
+                        className="w-50"
+                      />
+                    </div>
+                    <div className="d-flex flex-column align-items-center">
+                      <Link to={`/products/${product.id}`} className="dettails-link">
+                        Details
                       </Link>
-                    ) : (
-                      ""
-                    )}
 
-                    {/* questi nel caso è un amministratore ⬇*/}
-                    {user && user.role === "admin" ? (
-                      <div>
+                      {user && user.role === "client" ? (
                         <button
                           onClick={() => {
-                            deleteProduct(product.id);
+                            addCart(product.id);
                           }}
-                          className="mx-1 my-3 style-btn-delete"
+                          className="style-btn my-3"
                         >
-                          <FaTrash />
+                          Add to cart
                         </button>
-                        <Link to={`/products/${product.id}/edit`} className="style-btn">
-                          <FaPen className="text-white" />
+                      ) : (
+                        ""
+                      )}
+
+                      {user && user.role === "client" ? (
+                        <Link className="dettails-link" to={`/reviews/${product.id}/add`}>
+                          Add review
                         </Link>
-                      </div>
-                    ) : (
-                      ""
-                    )}
+                      ) : (
+                        ""
+                      )}
+
+                      {/* questi nel caso è un amministratore ⬇*/}
+                      {user && user.role === "admin" ? (
+                        <div>
+                          <button
+                            onClick={() => {
+                              deleteProduct(product.id);
+                            }}
+                            className="mx-1 my-3 style-btn-delete"
+                          >
+                            <FaTrash />
+                          </button>
+                          <Link to={`/products/${product.id}/edit`} className="style-btn">
+                            <FaPen className="text-white" />
+                          </Link>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </div>
                   </div>
                 </Col>
               ))}
