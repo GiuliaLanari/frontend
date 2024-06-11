@@ -83,10 +83,10 @@ const MyNavbar = () => {
           </>
         ) : (
           <>
-            <Link className="nav-link linkHover me-4" to="/login">
+            <Link className="nav-link linkHover me-4 p-2" to="/login">
               Login
             </Link>
-            <Link className="nav-link linkHover" to="/register">
+            <Link className="nav-link linkHover p-2" to="/register">
               Register
             </Link>
           </>
