@@ -79,6 +79,18 @@ const Home = () => {
           <Col xs={12} className="bg-home py-4">
             <h1 className=" text ">PlusArt</h1>
           </Col>
+          <Col xs={12} className="free-giftBox">
+            <div>
+              <img
+                width="64"
+                height="64"
+                src="https://img.icons8.com/nolan/64/1A6DFF/C822FF/packaging.png"
+                alt="packaging"
+                className="me-5"
+              />
+              <h4> Free gift box with order over £ 30</h4>
+            </div>
+          </Col>
           <Col xs={12}>
             <Row className="my-5">
               {products.map((product) => (

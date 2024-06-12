@@ -26,10 +26,29 @@ body {
   margin-inline-end: 0.8rem;
 }
 
-.footer {
-  background-color: #212529;
-  padding-block: 0.8rem;
+.free-giftBox {
+  margin-block-start: 1rem;
+  background: linear-gradient(180deg, rgba(253, 187, 45, 1) 0%, #d50053b3 100%);
+  color: #000935;
+}
+
+.free-giftBox div {
+  display: flex;
+  align-items: center;
   justify-content: center;
+  padding-block: 0.5rem;
+}
+
+.free-giftBox div h4 {
+  font-weight: bolder;
+}
+
+.footer {
+  display: flex;
+  background-color: #f307ce2b;
+  padding-block: 1.8rem;
+  justify-content: center;
+  margin-block-end: 0.2rem;
 }
 .font {
   font-size: 2.5rem;
@@ -42,12 +61,31 @@ body {
   cursor: pointer;
 }
 
+.footer-info {
+  display: flex;
+  background-color: #ff98008a;
+  justify-content: space-around;
+  color: white;
+  align-items: center;
+  padding-block: 2rem;
+  margin-block-end: 0.2rem;
+  flex-wrap: wrap;
+}
+
+.footer-info p {
+  margin-block: 0px;
+  color: white;
+  text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000, 1px 1px #000000, -1px -1px #000000,
+    1px -1px #000000, -1px 1px #000000;
+}
+
 .copy-right {
   text-align: center;
   padding-block-start: 0.5rem;
   padding-block-end: 0.8rem;
   color: #212529;
-  background-color: #59c9b4;
+
+  background-color: #59c9b4b0;
 }
 
 .mobile-nav-cart {
@@ -84,10 +122,11 @@ body {
 }
 
 .style-btn {
-  background-color: #59c9b4;
+  background-color: #59c9b4b0;
   color: #212529;
   border: none;
   border-radius: 10px;
+  margin-inline-end: 0.5rem;
   padding-block: 0.5rem;
   padding-inline: 0.8rem;
   text-decoration: none;
@@ -95,7 +134,7 @@ body {
 .style-btn:hover {
   /* background-color: #59bcc9;
   color: #212529; */
-  background-color: #212529;
+  background-color: #212529c0;
   color: #59c9b4;
   border: none;
 }
@@ -116,7 +155,7 @@ body {
 .style-btn-delete:hover {
   /* background-color: #59bcc9;
   color: #212529; */
-  background-color: rgba(187, 45, 59, 0.479);
+  background-color: rgb(187, 45, 59);
 
   border: none;
 }
@@ -312,6 +351,9 @@ body {
   .m-btn-delete {
     margin-inline-end: 0rem;
     margin-block-end: 1rem;
+  }
+  .free-giftBox div h4 {
+    font-size: 16px;
   }
 }
 
