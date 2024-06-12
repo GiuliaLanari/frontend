@@ -4,10 +4,15 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.linkHover {
+  padding-inline: 0.8rem;
+  padding-block: 0.4rem;
+}
 .linkHover:hover {
   color: #59c9b4;
-  box-shadow: 0 0 50px #59c9b462, 0 0 25px #59c9b4, 0 0 50px #59c9b4, 0 0 50px #59c9b4, 0 0 200px #59c9b4;
-  border-radius: 10px;
+
+  box-shadow: 0 0 20px #59c9b462, 0 0 15px #59c9b4, 0 0 20px #59c9b4, 0 0 20px #59c9b4, 0 0 100px #59c9b4;
+  border-radius: 20px;
 }
 
 .f-logo {
@@ -52,6 +57,32 @@ body {
   margin-inline: 5px;
 }
 
+.cart-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+  margin-block: 1rem;
+}
+
+.cart-btn {
+  margin-inline-start: 0.4rem;
+  border: none;
+  border-radius: 10px;
+}
+
+.cart-btn:hover {
+  background-color: #21252921;
+  border-radius: 10px;
+}
+
+.price {
+  margin-inline-end: 0.4rem;
+  background-color: #21252938;
+  padding-block: 0.4rem;
+  padding-inline: 0.8rem;
+  border-radius: 20px;
+}
+
 .style-btn {
   background-color: #59c9b4;
   color: #212529;
@@ -74,7 +105,7 @@ body {
 }
 
 .style-btn-delete {
-  background-color: #d32a3b;
+  background-color: #d81d30;
   color: white;
   border: none;
   border-radius: 10px;
@@ -85,7 +116,7 @@ body {
 .style-btn-delete:hover {
   /* background-color: #59bcc9;
   color: #212529; */
-  background-color: #bb2d3b;
+  background-color: rgba(187, 45, 59, 0.479);
 
   border: none;
 }

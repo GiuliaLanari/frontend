@@ -40,11 +40,25 @@ const MyNavbar = () => {
             {user && user.role === "client" ? (
               <>
                 <Link to="/cart" className="nav-link linkHover mobile-nav-cart">
-                  <FaOpencart className="f-navIcons" />
+                  {/* <FaOpencart className="f-navIcons" /> */}
+                  <img
+                    width="35"
+                    height="35"
+                    src="https://img.icons8.com/nolan/64/add-shopping-cart.png"
+                    alt="add-shopping-cart"
+                    className="me-2"
+                  />
                   Cart
                 </Link>
                 <Link className="nav-link linkHover mobile-nav-order" to={`/myOrders`}>
-                  <GrNotes className="f-navIcons" />
+                  {/* <GrNotes className="f-navIcons" /> */}
+                  <img
+                    width="35"
+                    height="35"
+                    src="https://img.icons8.com/nolan/64/purchase-order.png"
+                    alt="purchase-order"
+                    className="me-2"
+                  />
                   Orders
                 </Link>
               </>
@@ -67,7 +81,14 @@ const MyNavbar = () => {
             )}
 
             <Link to="/reviews" className="nav-link linkHover">
-              <MdOutlineReviews className="f-navIcons" />
+              {/* <MdOutlineReviews className="f-navIcons" /> */}
+              <img
+                width="35"
+                height="35"
+                src="https://img.icons8.com/nolan/64/popular-topic.png"
+                alt="popular-topic"
+                className="me-2"
+              />
               Reviews
             </Link>
           </Nav>
@@ -79,12 +100,19 @@ const MyNavbar = () => {
             </span>
             <button className="nav-link linkHover" onClick={logout}>
               Logout
+              <img width="35" height="35" src="https://img.icons8.com/nolan/64/exit.png" alt="exit" className="ms-2" />
             </button>
           </>
         ) : (
           <>
             <Link className="nav-link linkHover me-4 p-2" to="/login">
               Login
+              <img
+                width="35"
+                height="35"
+                src="https://img.icons8.com/nolan/64/login-rounded-right.png"
+                alt="login-rounded-right ms-2"
+              />
             </Link>
             <Link className="nav-link linkHover p-2" to="/register">
               Register
