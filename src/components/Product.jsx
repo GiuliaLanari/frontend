@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { FaUserCircle } from "react-icons/fa";
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const Product = () => {
+  const user = useSelector((state) => state.user);
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
@@ -78,6 +81,22 @@ const Product = () => {
                   <p>
                     <span className="fw-bold">Price:</span> £ {product.price}
                   </p>
+                </Col>
+                <h5 className="mt-5 fw-bold">Reviews:</h5>
+                <Col xs={11} md={6}>
+                  {product.reviews.map((review) => (
+                    <div className="review-border" key={review.id}>
+                      <p>
+                        <FaUserCircle className="f-navIcons" />
+                        {review.user.name} {review.user.surname}{" "}
+                      </p>
+                      <p>Rating: {review.rating}</p>
+                      <p>Comment: {review.comment}</p>
+                    </div>
+                  ))}
+                </Col>
+                <Col xs={11} md={5}>
+                  <video src={"/assets/publicity.mp4"} autoPlay={true} type="video/mp4" className="w-100 mx-auto" />
                 </Col>
               </Row>
             </Col>

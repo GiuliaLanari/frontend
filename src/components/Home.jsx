@@ -107,9 +107,6 @@ const Home = () => {
                       </Link>
                     </div>
                     <div className="d-flex flex-column align-items-center">
-                      {/* <Link to={`/products/${product.id}`} className="dettails-link">
-                        Details
-                      </Link> */}
                       <div className="cart-container">
                         <p className="price">£ {product.price}</p>
 

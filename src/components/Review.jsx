@@ -67,51 +67,11 @@ const Review = () => {
           </div>
         ) : (
           <>
-            {/* <Col xs={12}>
-              <Table striped bordered hover>
-                <thead className="text-center ">
-                  <tr>
-                    <th>User Name</th>
-                    <th>Title product</th>
-                    <th>Rating</th>
-                    <th>Comment</th>
-                    {user && user.name ? <th>Delete</th> : ""}
-                  </tr>
-                </thead>
-                <tbody className="t-review">
-                  {reviews.map((review) => (
-                    <tr key={review.id}>
-                      <td>{review.user.name}</td>
-                      <td>{review.product.title}</td>
-                      <td>{review.rating}</td>
-                      <td>{review.comment}</td>
-                      {user && user.name === review.user.name ? (
-                        <td>
-                          {" "}
-                          <Button
-                            onClick={() => {
-                              deleteProduct(review.id);
-                            }}
-                            variant="danger mx-1"
-                          >
-                            <FaTrash className="me-2" />
-                            Delete
-                          </Button>
-                        </td>
-                      ) : (
-                        ""
-                      )}
-                    </tr>
-                  ))}
-                </tbody>
-              </Table>
-            </Col> */}
-
             <Col xs={12}>
               <Row>
                 {reviews.map((review) => (
                   <Col xs={8} md={4} lg={3} key={review.id} className="my-4 mx-auto">
-                    <div className="review-border">
+                    <div className="review-border h-100">
                       <p>
                         <FaUserCircle className="f-navIcons" /> {review.user.name}
                       </p>
