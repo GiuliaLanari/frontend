@@ -105,6 +105,20 @@ const Home = () => {
                     <div className="d-flex flex-column align-items-center">
                       <div className="cart-container">
                         <p className="price">£ {product.price}</p>
+                        {!user || (user.role !== "client" && user.role !== "admin") ? (
+                          <div className="ms-5 zoom-wrapper">
+                            <Link to={"/login"}>
+                              <img
+                                width="67"
+                                height="67"
+                                src="https://img.icons8.com/external-flat-icons-inmotus-design/67/external-Buy-Now-label-flat-icons-inmotus-design.png"
+                                alt="external-Buy-Now-label-flat-icons-inmotus-design"
+                              />
+                            </Link>
+                          </div>
+                        ) : (
+                          ""
+                        )}
 
                         {user && user.role === "client" ? (
                           <button

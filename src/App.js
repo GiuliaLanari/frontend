@@ -41,7 +41,6 @@ function App() {
       .catch((err) => console.log(err));
 
     // .finally(() => setLoaded(true));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
