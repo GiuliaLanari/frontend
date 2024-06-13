@@ -47,7 +47,7 @@ const OrderClient = () => {
         <Row className="justify-content-around">
           {user && user.role === "client"
             ? orders.map((order) => (
-                <Col xs={11} md={4} key={order.id} className="border-order mx-2 my-5">
+                <Col xs={11} md={5} lg={4} key={order.id} className="border-order mx-2 my-5">
                   <div className="border-order2">
                     <div>
                       <h4 className="num-order">Order code: {order.id}</h4>

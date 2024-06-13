@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { FaUserCircle } from "react-icons/fa";
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
@@ -8,7 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const Product = () => {
-  const user = useSelector((state) => state.user);
+  // const user = useSelector((state) => state.user);
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
