@@ -36,7 +36,7 @@ const OrderClient = () => {
   }, []);
 
   return (
-    <Container>
+    <Container className=" d-flex flex-column justify-content-center">
       {loading ? (
         <Spinner animation="grow" className="mx-auto mt-5" />
       ) : error ? (

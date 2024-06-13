@@ -47,63 +47,80 @@ const Product = () => {
   console.log(product);
 
   return (
-    <Container>
+    <div className=" d-flex flex-column justify-content-center">
+      <Container fluid>
+        <Row>
+          <Col xs={12} className="free-giftBox mb-5">
+            <div>
+              <img
+                width="64"
+                height="64"
+                src="https://img.icons8.com/nolan/64/1A6DFF/C822FF/packaging.png"
+                alt="packaging"
+              />
+              <h4> Free gift box with order over £ 30</h4>
+            </div>
+          </Col>
+        </Row>
+      </Container>
       {loading ? (
-        <Spinner animation="grow" className="mx-auto mt-5 mx-auto" />
+        <Spinner animation="grow" className="mx-auto mt-5 " />
       ) : (
         product && (
-          <Row>
-            <Col xs={12} className="my-5">
-              <Row>
-                <Col xs={12} md={5} className="zoom-wrapper">
-                  <img
-                    src={process.env.REACT_APP_BACKEND_URL + "/" + product.picture}
-                    alt={product.title}
-                    className="w-100"
-                  />
-                </Col>
-                <Col xs={12} md={7}>
-                  <h1>{product.title}</h1>
-                  <p>
-                    {" "}
-                    <span className="fw-bold">Description: </span> {product.description}
-                  </p>
-                  <p>
-                    <span className="fw-bold">Published date: </span>
-                    {new Date(product.created_at).toLocaleDateString()}
-                  </p>
-                  <p>
-                    <span className="fw-bold">Size:</span> XL
-                  </p>
-                  <p>
-                    <span className="fw-bold">Category:</span> {product.category.name}
-                  </p>
-                  <p>
-                    <span className="fw-bold">Price:</span> £ {product.price}
-                  </p>
-                </Col>
-                <h5 className="mt-5 fw-bold">Reviews:</h5>
-                <Col xs={11} md={6}>
-                  {product.reviews.map((review) => (
-                    <div className="review-border" key={review.id}>
-                      <p>
-                        <FaUserCircle className="f-navIcons" />
-                        {review.user.name} {review.user.surname}{" "}
-                      </p>
-                      <p>Rating: {review.rating}</p>
-                      <p>Comment: {review.comment}</p>
-                    </div>
-                  ))}
-                </Col>
-                <Col xs={11} md={5}>
-                  <video src={"/assets/publicity.mp4"} autoPlay={true} type="video/mp4" className="w-100 mx-auto" />
-                </Col>
-              </Row>
-            </Col>
-          </Row>
+          <Container>
+            <Row>
+              <Col xs={12}>
+                <Row>
+                  <Col xs={12} md={5} className="zoom-wrapper">
+                    <img
+                      src={process.env.REACT_APP_BACKEND_URL + "/" + product.picture}
+                      alt={product.title}
+                      className="w-100"
+                    />
+                  </Col>
+                  <Col xs={12} md={7}>
+                    <h1>{product.title}</h1>
+                    <p>
+                      {" "}
+                      <span className="fw-bold">Description: </span> {product.description}
+                    </p>
+                    <p>
+                      <span className="fw-bold">Published date: </span>
+                      {new Date(product.created_at).toLocaleDateString()}
+                    </p>
+                    <p>
+                      <span className="fw-bold">Size:</span> XL
+                    </p>
+                    <p>
+                      <span className="fw-bold">Category:</span> {product.category.name}
+                    </p>
+                    <p>
+                      <span className="fw-bold">Price:</span> £ {product.price}
+                    </p>
+                  </Col>
+                  <h5 className="mt-5 fw-bold">Reviews:</h5>
+                  <Col xs={11} md={6}>
+                    {product.reviews.map((review) => (
+                      <div className="review-border" key={review.id}>
+                        <p>
+                          <FaUserCircle className="f-navIcons" />
+                          {review.user.name} {review.user.surname}{" "}
+                        </p>
+                        <p>Rating: {review.rating}</p>
+                        <p>Comment: {review.comment}</p>
+                      </div>
+                    ))}
+                  </Col>
+                  <Col xs={11} md={5}>
+                    <video src={"/assets/publicity.mp4"} autoPlay={true} type="video/mp4" className="w-100 mx-auto" />
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Container>
         )
       )}
-    </Container>
+    </div>
   );
 };
 
