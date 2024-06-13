@@ -71,7 +71,7 @@ const Home = () => {
           Error: {error}
         </div>
       ) : (
-        <Row>
+        <Row className="justify-content-evenly">
           <Col xs={12} className="bg-home py-4">
             <h1 className=" text ">PlusArt</h1>
           </Col>
@@ -177,6 +177,19 @@ const Home = () => {
                 </Col>
               ))}
             </Row>
+          </Col>
+          <Col xs={12} md={5}>
+            <video
+              src={"/assets/summer-collection.mp4"}
+              autoPlay
+              muted
+              loop
+              type="video/mp4"
+              className="w-100 h-100 m-0"
+            />
+          </Col>
+          <Col xs={12} md={6} className="bg-info">
+            ciaoooo
           </Col>
         </Row>
       )}

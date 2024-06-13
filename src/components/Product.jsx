@@ -100,7 +100,14 @@ const Product = () => {
                     ))}
                   </Col>
                   <Col xs={11} md={5}>
-                    <video src={"/assets/publicity.mp4"} autoPlay={true} type="video/mp4" className="w-100 mx-auto" />
+                    <video
+                      src={"/assets/publicity.mp4"}
+                      autoPlay
+                      muted
+                      loop
+                      type="video/mp4"
+                      className="w-100 mx-auto"
+                    />
                   </Col>
                 </Row>
               </Col>
