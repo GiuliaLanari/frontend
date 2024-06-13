@@ -9,6 +9,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import axios from "axios";
+import Carousel from "react-bootstrap/Carousel";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -178,9 +179,9 @@ const Home = () => {
               ))}
             </Row>
           </Col>
-          <Col xs={12} md={5}>
+          <Col xs={11} md={5}>
             <video
-              src={"/assets/summer-collection.mp4"}
+              src={"/assets/publicity/summer-collection.mp4"}
               autoPlay
               muted
               loop
@@ -188,8 +189,33 @@ const Home = () => {
               className="w-100 h-100 m-0"
             />
           </Col>
-          <Col xs={12} md={6} className="bg-info">
-            ciaoooo
+          <Col xs={11} md={6} className="bg-info p-0">
+            <Carousel>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100 object-fit-cover"
+                  src={"/assets/publicity/publicity-1.webp"}
+                  alt="T-shirt"
+                />
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100 object-fit-cover"
+                  src={"/assets/publicity/publicity-2.jpeg"}
+                  alt="T-shirt"
+                />
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100 object-fit-cover"
+                  src={"/assets/publicity/publicity-3.webp"}
+                  alt="T-shirt"
+                />
+              </Carousel.Item>
+            </Carousel>
+            <div className="carosel-text">
+              <p>New collection</p>
+            </div>
           </Col>
         </Row>
       )}

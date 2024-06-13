@@ -324,6 +324,13 @@ body {
   color: #38aa95;
 }
 
+.carosel-text {
+  text-align: center;
+  margin-block-start: 2rem;
+  font-weight: bolder;
+  font-size: 32px;
+}
+
 /* MEDIA QUERY */
 
 @media screen and (max-width: 576px) {
