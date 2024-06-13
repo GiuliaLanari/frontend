@@ -329,6 +329,15 @@ body {
   margin-block-start: 2rem;
   font-weight: bolder;
   font-size: 32px;
+  color: black;
+  text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff, 1px 1px #fff, -1px -1px #fff, 1px -1px #fff,
+    -1px 1px #fff;
+}
+
+.bg-carosel {
+  padding: 0;
+  background-color: rgb(140 218 203);
+  border-radius: 20px;
 }
 
 /* MEDIA QUERY */

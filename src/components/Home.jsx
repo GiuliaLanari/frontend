@@ -189,7 +189,7 @@ const Home = () => {
               className="w-100 h-100 m-0"
             />
           </Col>
-          <Col xs={11} md={6} className="bg-info p-0">
+          <Col xs={11} md={6} className="bg-carosel ">
             <Carousel>
               <Carousel.Item>
                 <img
@@ -213,7 +213,7 @@ const Home = () => {
                 />
               </Carousel.Item>
             </Carousel>
-            <div className="carosel-text">
+            <div className="carosel-text ">
               <p>New collection</p>
             </div>
           </Col>
