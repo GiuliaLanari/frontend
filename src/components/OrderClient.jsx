@@ -14,10 +14,6 @@ const OrderClient = () => {
 
   useEffect(() => {
     fetch(`/api/v1/orders`)
-      // .then((res) => res.json())
-      // .then((data) => {
-      //   setOrders(data.data);
-      // });
       .then((res) => {
         if (!res.ok) {
           setMessage("Error loading the order!");

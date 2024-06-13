@@ -16,11 +16,6 @@ const OrderDettail = () => {
     setLoading(true);
 
     fetch(`/api/v1/orders/${id}`)
-      // .then((res) => {
-      //   if (!res.ok) navigate("/404");
-      //   return res.json();
-      // })
-      // .then((data) => setOrder(data.data));
       .then((res) => {
         if (!res.ok) {
           throw new Error("Network response was not ok");
@@ -39,7 +34,6 @@ const OrderDettail = () => {
   }, [id]);
 
   return (
-    // order && (
     <Container className=" d-flex flex-column justify-content-center">
       {loading ? (
         <Spinner animation="grow" className="mx-auto mt-5" />
@@ -78,7 +72,6 @@ const OrderDettail = () => {
       )}
     </Container>
   );
-  // );
 };
 
 export default OrderDettail;

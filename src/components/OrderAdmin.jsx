@@ -20,10 +20,6 @@ const OrderAdmin = () => {
 
   useEffect(() => {
     fetch(`/api/v1/orders`)
-      // .then((res) => res.json())
-      // .then((data) => {
-      //   setOrders(data.data);
-      // });
       .then((res) => {
         if (!res.ok) {
           throw new Error("Network response was not ok");
@@ -46,7 +42,6 @@ const OrderAdmin = () => {
 
       .then((res) => {
         setMessage("Order deleted successfully");
-        // window.location.reload("/orders");
         navigate("/");
       })
       .catch((error) => {

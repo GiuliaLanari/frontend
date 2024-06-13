@@ -34,7 +34,6 @@ const EditProductForm = () => {
         setError(false);
         setFormData({
           title: res.data.data.title,
-          // picture: res.data.data.picture,
           description: res.data.data.description,
           price: res.data.data.price,
           category_id: res.data.data.category_id,
@@ -46,36 +45,9 @@ const EditProductForm = () => {
         setLoading(false);
         setAlert(false);
       });
-    // fetch(`/api/v1/products/${id}`)
-    //   .then((res) => {
-    //     if (res.ok) {
-    //       return res.json();
-    //     } else {
-    //       throw new Error("Trouble uploading");
-    //     }
-    //   })
-    //   .then((res) => {
-    //     setFormData({
-    //       title: res.data.data.title,
-    //       // picture: res.data.data.picture,
-    //       description: res.data.data.description,
-    //       price: res.data.data.price,
-    //       category_id: res.data.data.category_id,
-    //     });
-    //     setLoading(false);
-    //     setError(false);
-    //   })
-    //   .catch((error) => {
-    //     setError(true);
-    //     setLoading(false);
-    //     setAlert(false);
-    //   });
   }, [id]);
 
   useEffect(() => {
-    // fetch("/api/v1/category")
-    //   .then((res) => res.json())
-    //   .then((data) => setCategories(data.data));
     fetch("/api/v1/category")
       .then((res) => {
         if (res.ok) {

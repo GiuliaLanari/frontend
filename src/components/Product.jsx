@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-// import { useSelector } from "react-redux";
 import { FaUserCircle } from "react-icons/fa";
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
@@ -8,7 +7,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const Product = () => {
-  // const user = useSelector((state) => state.user);
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
@@ -16,16 +14,7 @@ const Product = () => {
 
   useEffect(() => {
     setLoading(true);
-    // fetch(`/api/v1/products/${id}`)
-    //   .then((res) => {
-    //     if (!res.ok) navigate("/404");
-    //     return res.json();
-    //   })
-    //   .then((data) => setProduct(data.data))
-    //   .catch((error) => {
-    //     console.error("Error loading:", error);
-    //     navigate("/404");
-    //   });
+
     fetch(`/api/v1/products/${id}`)
       .then((res) => {
         if (!res.ok) {
@@ -42,7 +31,6 @@ const Product = () => {
         setLoading(false);
         navigate("/404");
       });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
   console.log(product);
 

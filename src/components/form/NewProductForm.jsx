@@ -109,84 +109,6 @@ const NewProductForm = () => {
         ) : (
           <Col xs={12} md={5} className="mx-auto my-5">
             <h1>New product</h1>
-            {/* <form onSubmit={(ev) => submitLogin(ev)} noValidate>
-            <div className="mb-3">
-              <label htmlFor="title" className="form-label">
-                Name Product
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="title"
-                name="title"
-                onChange={(ev) => updateInputValue(ev)}
-                value={formData.title}
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="picture" className="form-label">
-                Picture
-              </label>
-              <input
-                type="file"
-                className="form-control"
-                id="picture"
-                name="picture"
-                onChange={(ev) => updateImageField(ev)}
-                value={formData.picture}
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="description" className="form-label">
-                Description
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="description"
-                name="description"
-                onChange={(ev) => updateInputValue(ev)}
-                value={formData.description}
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="price" className="form-label">
-                Price
-              </label>
-              <input
-                type="number"
-                className="form-control"
-                id="price"
-                name="price"
-                onChange={(ev) => updateInputValue(ev)}
-                value={formData.price}
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="category" className="form-label">
-                Category
-              </label>
-
-              <Form.Select
-                id="category_id"
-                name="category_id"
-                onChange={(ev) => updateInputValue(ev)}
-                value={formData.category_id}
-              >
-                {categories.map((category) => (
-                  <option key={category.id} value={category.id}>
-                    {category.name}
-                  </option>
-                ))}
-              </Form.Select>
-            </div>
-
-            <div className="d-flex justify-content-center mt-5">
-              <button type="submit" className=" btn style-btn">
-                Add new Product
-              </button>
-            </div>
-          </form> */}
             <Form noValidate onSubmit={(ev) => submitForm(ev)}>
               <Row className="mb-3">
                 <Form.Group as={Col} md="12" controlId="title">
@@ -208,10 +130,8 @@ const NewProductForm = () => {
                     required
                     type="file"
                     placeholder="Last name"
-                    // id="picture"
                     name="picture"
                     onChange={(ev) => updateImageField(ev)}
-                    // value={formData.picture}
                   />
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
@@ -221,7 +141,6 @@ const NewProductForm = () => {
                     required
                     type="text"
                     placeholder="Description"
-                    // id="description"
                     name="description"
                     onChange={(ev) => updateInputValue(ev)}
                     value={formData.description}
@@ -234,7 +153,6 @@ const NewProductForm = () => {
                     required
                     type="number"
                     placeholder="price"
-                    // id="price"
                     name="price"
                     onChange={(ev) => updateInputValue(ev)}
                     value={formData.price}
@@ -244,12 +162,7 @@ const NewProductForm = () => {
                 <Form.Group as={Col} md="12" controlId="category">
                   <Form.Label>Category</Form.Label>
 
-                  <Form.Select
-                    // id="category_id"
-                    name="category_id"
-                    onChange={(ev) => updateInputValue(ev)}
-                    value={formData.category_id}
-                  >
+                  <Form.Select name="category_id" onChange={(ev) => updateInputValue(ev)} value={formData.category_id}>
                     {categories.map((category) => (
                       <option key={category.id} value={category.id}>
                         {category.name}

@@ -18,8 +18,6 @@ const NewReviewForm = () => {
   const [formData, setFormData] = useState({
     rating: "",
     comment: "",
-    // product_id: "",
-    // user_id: "",
   });
 
   const updateInputValue = (ev) => {
@@ -68,39 +66,6 @@ const NewReviewForm = () => {
         ) : (
           <Col xs={12} md={5} className="mx-auto my-5 form-container">
             <h1>New review</h1>
-            {/* <form onSubmit={(ev) => submitLogin(ev)} noValidate>
-            <div className="mb-3">
-              <label htmlFor="rating" className="form-label">
-                Rating
-              </label>
-              <input
-                type="number"
-                className="form-control"
-                id="rating"
-                name="rating"
-                onChange={(ev) => updateInputValue(ev)}
-                value={formData.rating}
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="comment" className="form-label">
-                Comment
-              </label>
-              <input
-                type="comment"
-                className="form-control"
-                id="comment"
-                name="comment"
-                onChange={(ev) => updateInputValue(ev)}
-                value={formData.comment}
-              />
-            </div>
-            <div className="d-flex justify-content-center mt-5">
-              <button type="submit" className="btn style-btn">
-                Add new Review
-              </button>
-            </div>
-          </form> */}
             <Form noValidate onSubmit={(ev) => submitLogin(ev)}>
               <Row className="mb-3">
                 <Form.Group as={Col} md="12" controlId="rating">
@@ -109,7 +74,6 @@ const NewReviewForm = () => {
                     required
                     type="number"
                     placeholder="Rating"
-                    // id="rating"
                     name="rating"
                     onChange={(ev) => updateInputValue(ev)}
                     value={formData.rating}
@@ -123,7 +87,6 @@ const NewReviewForm = () => {
                     required
                     type="text"
                     placeholder="Comment"
-                    // id="comment"
                     name="comment"
                     onChange={(ev) => updateInputValue(ev)}
                     value={formData.comment}

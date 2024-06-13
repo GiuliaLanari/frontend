@@ -1,6 +1,3 @@
-// import { FaInstagramSquare } from "react-icons/fa";
-// import { FaWhatsappSquare } from "react-icons/fa";
-// import { FaEnvelopeSquare } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const MyFooter = () => {
@@ -18,7 +15,6 @@ const MyFooter = () => {
         <div className="footer ">
           <div className="font">
             <Link to="https://www.instagram.com/mett_and_giu_market/" target="_blank" rel="noopener noreferrer">
-              {/* <FaInstagramSquare className="text-white" /> */}
               <img
                 width="48"
                 height="48"
@@ -29,13 +25,11 @@ const MyFooter = () => {
           </div>
           <div className="font">
             <Link to={mailtoLink} target="_blank" rel="noopener noreferrer">
-              {/* <FaEnvelopeSquare className="text-white" /> */}
               <img width="48" height="48" src="https://img.icons8.com/fluency/48/gmail-new.png" alt="gmail-new" />
             </Link>
           </div>
           <div className="font">
             <Link to={whatsappLink} target="_blank" rel="noopener noreferrer">
-              {/* <FaWhatsappSquare className="text-white" /> */}
               <img width="48" height="48" src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="whatsapp--v1" />
             </Link>
           </div>

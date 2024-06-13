@@ -18,8 +18,6 @@ const Home = () => {
   const [message, setMessage] = useState("");
   const user = useSelector((state) => state.user);
 
-  // const navigate = useNavigate();
-
   useEffect(() => {
     fetch("/api/v1/products")
       .then((res) => {
@@ -28,7 +26,6 @@ const Home = () => {
         }
         return res.json();
       })
-      // .then((data) => setProducts(data.data));
       .then((data) => {
         setProducts(data.data);
         setLoading(false);
@@ -56,7 +53,6 @@ const Home = () => {
   const addCart = (id) => {
     axios
       .post(`/api/v1/carts/${id}/add`)
-      // .then((res) => setCart(res));
       .then((res) => {
         setCart("Add to cart successfully!");
       })
@@ -144,7 +140,7 @@ const Home = () => {
                         ""
                       )}
 
-                      {/* questi nel caso è un amministratore ⬇*/}
+                      {/* LOGIN ADMIN ⬇*/}
                       {user && user.role === "admin" ? (
                         <div>
                           <button

@@ -2,9 +2,6 @@ import axios from "axios";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-// import { FaOpencart } from "react-icons/fa";
-// import { GrNotes } from "react-icons/gr";
-// import { MdOutlineReviews } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { LOGOUT } from "../redux/actions";
@@ -35,12 +32,11 @@ const MyNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mx-auto">
-            {/* se sei un CLIENT */}
+            {/* LOGIN CLIET ⬇ */}
 
             {user && user.role === "client" ? (
               <>
                 <Link to="/cart" className="nav-link linkHover mobile-nav-cart">
-                  {/* <FaOpencart className="f-navIcons" /> */}
                   <img
                     width="35"
                     height="35"
@@ -51,7 +47,6 @@ const MyNavbar = () => {
                   Cart
                 </Link>
                 <Link className="nav-link linkHover mobile-nav-order" to={`/myOrders`}>
-                  {/* <GrNotes className="f-navIcons" /> */}
                   <img
                     width="35"
                     height="35"
@@ -66,7 +61,7 @@ const MyNavbar = () => {
               ""
             )}
 
-            {/* se è un ADMIN */}
+            {/* LOGIN ADMIN */}
             {user && user.role === "admin" ? (
               <>
                 <Link to="/products/add" className="nav-link linkHover">
@@ -95,7 +90,6 @@ const MyNavbar = () => {
             )}
 
             <Link to="/reviews" className="nav-link linkHover">
-              {/* <MdOutlineReviews className="f-navIcons" /> */}
               <img
                 width="35"
                 height="35"

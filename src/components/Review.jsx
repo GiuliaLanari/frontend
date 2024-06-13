@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { FaUserCircle } from "react-icons/fa";
@@ -8,7 +8,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-// import Table from "react-bootstrap/Table";
 import axios from "axios";
 
 const Review = () => {
@@ -17,13 +16,11 @@ const Review = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [message, setMessage] = useState("");
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   console.log(reviews);
   useEffect(() => {
     fetch("/api/v1/reviews")
-      // .then((res) => res.json())
-      // .then((data) => setReviews(data));
       .then((res) => {
         if (!res.ok) {
           throw new Error("Network response was not ok");
@@ -38,6 +35,7 @@ const Review = () => {
       .catch((error) => {
         setError(error.message);
         setLoading(false);
+        navigate("/404");
       });
   }, []);
 

@@ -59,79 +59,7 @@ const Register = () => {
 
         <Col xs={11} md={5} className="mx-auto my-5 form-container">
           <h1>Register</h1>
-          {/* <form onSubmit={(ev) => submitLogin(ev)} noValidate>
-            <div className="mb-3">
-              <label htmlFor="name" className="form-label">
-                Name
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="name"
-                name="name"
-                onChange={(ev) => updateInputValue(ev)}
-                value={formData.name}
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="surname" className="form-label">
-                Surname
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="surname"
-                name="surname"
-                onChange={(ev) => updateInputValue(ev)}
-                value={formData.surname}
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">
-                Email address
-              </label>
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                name="email"
-                onChange={(ev) => updateInputValue(ev)}
-                value={formData.email}
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="password" className="form-label">
-                Password
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="password"
-                name="password"
-                onChange={(ev) => updateInputValue(ev)}
-                value={formData.password}
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="password_confirmation" className="form-label">
-                Conferma password
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="password_confirmation"
-                name="password_confirmation"
-                onChange={(ev) => updateInputValue(ev)}
-                value={formData.password_confirmation}
-              />
-            </div>
 
-            <div className="d-flex justify-content-center mt-5">
-              <button type="submit" className="btn style-btn">
-                Register
-              </button>
-            </div>
-          </form> */}
           <Form noValidate onSubmit={(ev) => submitLogin(ev)}>
             <Row className="mb-3">
               <Form.Group as={Col} md="12" controlId="name">
@@ -140,7 +68,6 @@ const Register = () => {
                   required
                   type="text"
                   placeholder="Name"
-                  // id="name"
                   name="name"
                   onChange={(ev) => updateInputValue(ev)}
                   value={formData.name}
@@ -153,7 +80,6 @@ const Register = () => {
                   required
                   type="text"
                   placeholder="Surname"
-                  // id="surname"
                   name="surname"
                   onChange={(ev) => updateInputValue(ev)}
                   value={formData.surname}
@@ -166,7 +92,6 @@ const Register = () => {
                   required
                   type="email"
                   placeholder="Email"
-                  // id="email"
                   name="email"
                   onChange={(ev) => updateInputValue(ev)}
                   value={formData.email}
@@ -180,7 +105,6 @@ const Register = () => {
                   required
                   type="password"
                   placeholder="Password"
-                  // id="password"
                   name="password"
                   onChange={(ev) => updateInputValue(ev)}
                   value={formData.password}
@@ -193,7 +117,6 @@ const Register = () => {
                   required
                   type="password"
                   placeholder="Password Confirmation"
-                  // id="password_confirmation"
                   name="password_confirmation"
                   onChange={(ev) => updateInputValue(ev)}
                   value={formData.password_confirmation}
