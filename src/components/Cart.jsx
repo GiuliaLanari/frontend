@@ -37,16 +37,18 @@ const Cart = () => {
   }, []);
 
   const deleteProduct = (id) => {
-    axios
-      .delete(`/api/v1/carts/${id}`)
-      .then((res) => {
-        setMessage("Cart deleted successfully");
-        navigate("/");
-      })
-      .catch((error) => {
-        setMessage("Failed to delete the cart. Please try again.");
-        console.error("There was an error deleting the product in the cart!", error);
-      });
+    if (window.confirm("Are you sure you want to empty your cart?")) {
+      axios
+        .delete(`/api/v1/carts/${id}`)
+        .then((res) => {
+          setMessage("Cart deleted successfully");
+          navigate("/");
+        })
+        .catch((error) => {
+          setMessage("Failed to delete the cart. Please try again.");
+          console.error("There was an error deleting the product in the cart!", error);
+        });
+    }
   };
 
   const buyCart = () => {
