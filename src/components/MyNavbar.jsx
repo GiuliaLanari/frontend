@@ -2,6 +2,7 @@ import axios from "axios";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import Dropdown from "react-bootstrap/Dropdown";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { LOGOUT } from "../redux/actions";
@@ -103,7 +104,21 @@ const MyNavbar = () => {
           {user ? (
             <>
               <span className="nav-link me-5 mobile-nav">
-                {user.name} {user.surname}
+                <Dropdown data-bs-theme="dark">
+                  <Dropdown.Toggle
+                    id="dropdown-button-dark-example1"
+                    variant="secondary"
+                    className="drop-nav linkHover"
+                  >
+                    {user.name} {user.surname}
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item as={Link} to="/change-password" className="dropdown-item">
+                      Change Password
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </span>
               <button className="nav-link linkHover" onClick={logout}>
                 Logout
@@ -126,6 +141,9 @@ const MyNavbar = () => {
               </Link>
             </>
           )}
+          {/* <Link className="nav-link linkHover p-2" to="/change-password">
+            Change Password
+          </Link> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>

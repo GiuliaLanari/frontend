@@ -4,6 +4,26 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.drop-nav {
+  border: #212529;
+  background-color: #212529;
+  border-radius: 20px;
+  padding-inline: 0.8rem;
+  padding-block: 0.4rem;
+}
+
+.drop-nav:hover {
+  border: #191b1d;
+  background-color: #212529;
+  border-radius: 20px;
+  padding-inline: 0.8rem;
+  padding-block: 0.4rem;
+}
+.dropdown-item:active {
+  color: #212529;
+  background-color: #59c9b4;
+}
+
 .linkHover {
   padding-inline: 0.8rem;
   padding-block: 0.4rem;

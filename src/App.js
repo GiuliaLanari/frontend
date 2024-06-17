@@ -8,7 +8,7 @@ import Register from "./components/Register";
 import Product from "./components/Product";
 import NotFound from "./components/NotFound";
 import MyNavbar from "./components/MyNavbar";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { LOGIN } from "./redux/actions";
 import NewProductForm from "./components/form/NewProductForm";
@@ -23,10 +23,13 @@ import OrderClient from "./components/OrderClient";
 import OrderDettail from "./components/OrderDettail";
 import Cart from "./components/Cart";
 import MyFooter from "./components/MyFooter";
+import ChangePassword from "./components/form/ChangePassword";
+import LoginRoute from "./components/route/LoginRoute";
 
 function App() {
   axios.defaults.withCredentials = true;
   axios.defaults.withXSRFToken = true;
+  const [loaded, setLoaded] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -38,17 +41,22 @@ function App() {
           payload: res.data,
         })
       )
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
 
-    // .finally(() => setLoaded(true));
-  }, []);
+      .finally(() => setLoaded(true));
+  }, [dispatch]);
 
   return (
-    <>
+    loaded && (
       <BrowserRouter>
         <MyNavbar />
 
         <Routes>
+          {/* Change password if login */}
+          <Route element={<LoginRoute />}>
+            <Route path="/change-password" element={<ChangePassword />} />
+          </Route>
+
           {/* ROTTE PROTETTE ADMIN */}
           <Route element={<AdminRoutes />}>
             <Route path="/products/add" element={<NewProductForm />} />
@@ -81,7 +89,7 @@ function App() {
 
         <MyFooter />
       </BrowserRouter>
-    </>
+    )
   );
 }
 

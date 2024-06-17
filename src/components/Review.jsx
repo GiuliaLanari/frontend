@@ -18,7 +18,6 @@ const Review = () => {
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
-  console.log(reviews);
   useEffect(() => {
     fetch("/api/v1/reviews")
       .then((res) => {
@@ -28,7 +27,6 @@ const Review = () => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
         setReviews(data);
         setLoading(false);
       })

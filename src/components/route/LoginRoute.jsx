@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
 
-const ClientRoutes = () => {
+const LoginRoute = () => {
   const user = useSelector((state) => state.user);
 
-  return user?.role === "client" ? <Outlet /> : <Navigate to="/login" />;
+  return user ? <Outlet /> : <Navigate to="/login" />;
 };
 
-export default ClientRoutes;
+export default LoginRoute;

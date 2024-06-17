@@ -32,7 +32,6 @@ const Product = () => {
         navigate("/404");
       });
   }, [id]);
-  console.log(product);
 
   return (
     <div className=" d-flex flex-column justify-content-center">
