@@ -86,7 +86,7 @@ const Product = () => {
                     </p>
 
                     <div className="d-flex align-items-baseline">
-                      <p className="fw-bold me-4">Size disponibility: </p>
+                      <p className="fw-bold me-4">Sizes available: </p>
                       <Form.Select aria-label="Default select example" className="t-shirt-size ">
                         <option>Size</option>
                         <option value="S">S</option>
