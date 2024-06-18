@@ -101,6 +101,14 @@ const MyNavbar = () => {
               Reviews
             </Link>
           </Nav>
+          {!user ? (
+            <Link className="nav-link linkHover p-2 me-3" to="/contact-us">
+              Contact us
+            </Link>
+          ) : (
+            ""
+          )}
+
           {user ? (
             <>
               <span className="nav-link me-5 mobile-nav">
@@ -116,6 +124,9 @@ const MyNavbar = () => {
                   <Dropdown.Menu>
                     <Dropdown.Item as={Link} to="/change-password" className="dropdown-item">
                       Change Password
+                    </Dropdown.Item>
+                    <Dropdown.Item as={Link} to="/contact-us" className="dropdown-item">
+                      Contact us
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
@@ -141,9 +152,6 @@ const MyNavbar = () => {
               </Link>
             </>
           )}
-          {/* <Link className="nav-link linkHover p-2" to="/change-password">
-            Change Password
-          </Link> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>

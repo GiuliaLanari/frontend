@@ -25,6 +25,7 @@ import Cart from "./components/Cart";
 import MyFooter from "./components/MyFooter";
 import ChangePassword from "./components/form/ChangePassword";
 import LoginRoute from "./components/route/LoginRoute";
+import ContactForm from "./components/form/ContactForm";
 
 function App() {
   axios.defaults.withCredentials = true;
@@ -82,6 +83,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/products/:id" element={<Product />} />
           <Route path="/reviews" element={<Review />} />
+          <Route path="/contact-us" element={<ContactForm />} />
 
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<Navigate to="/404" />} />

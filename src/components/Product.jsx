@@ -5,6 +5,7 @@ import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
 
 const Product = () => {
   const [product, setProduct] = useState(null);
@@ -66,24 +67,34 @@ const Product = () => {
                     />
                   </Col>
                   <Col xs={12} md={7}>
-                    <h1>{product.title}</h1>
+                    <h1 className="mt-4">{product.title}</h1>
                     <p>
                       {" "}
-                      <span className="fw-bold">Description: </span> {product.description}
+                      <span className="fw-bold ">Description: </span> {product.description}
                     </p>
                     <p>
                       <span className="fw-bold">Published date: </span>
                       {new Date(product.created_at).toLocaleDateString()}
                     </p>
                     <p>
-                      <span className="fw-bold">Size:</span> XL
+                      <span className="fw-bold me-4">Price: </span>
+                      <span className="price"> £ {product.price}</span>
                     </p>
                     <p>
-                      <span className="fw-bold">Category:</span> {product.category.name}
+                      <span className="fw-bold me-4">Category: </span>
+                      <span className="price"> {product.category.name}</span>
                     </p>
-                    <p>
-                      <span className="fw-bold">Price:</span> £ {product.price}
-                    </p>
+
+                    <div className="d-flex align-items-baseline">
+                      <p className="fw-bold me-4">Size disponibility: </p>
+                      <Form.Select aria-label="Default select example" className="t-shirt-size ">
+                        <option>Size</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                      </Form.Select>
+                    </div>
                   </Col>
                   <h5 className="mt-5 fw-bold">Reviews:</h5>
                   <Col xs={11} md={6}>

@@ -313,6 +313,13 @@ body {
   padding-block: 2rem;
   background-size: cover;
 }
+.bg-contact {
+  background-image: url("/public/assets/sfondo-home.jpeg");
+  margin-top: 2.8rem;
+  border-radius: 10px;
+  padding-block: 2rem;
+  background-size: cover;
+}
 
 .form-container {
   border: 2px solid white;
@@ -357,6 +364,11 @@ body {
 .bg-carosel {
   padding: 0;
   background-color: rgb(140 218 203);
+  border-radius: 20px;
+}
+
+.t-shirt-size {
+  width: 6rem;
   border-radius: 20px;
 }
 
