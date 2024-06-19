@@ -8,11 +8,14 @@ import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Modal from "react-bootstrap/Modal";
 
 const OrderAdmin = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [deleteId, setDeleteId] = useState(null);
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
@@ -36,9 +39,14 @@ const OrderAdmin = () => {
       });
   }, []);
 
-  const deleteProduct = (id) => {
+  const handleDelete = (id) => {
+    setShowModal(true);
+    setDeleteId(id);
+  };
+
+  const deleteOrder = (id) => {
     axios
-      .delete(`/api/v1/orders/${id}`)
+      .delete(`/api/v1/orders/${deleteId}`)
 
       .then((res) => {
         setMessage("Order deleted successfully");
@@ -62,7 +70,7 @@ const OrderAdmin = () => {
         <Row className="justify-content-around">
           {user && user.role === "admin"
             ? orders.map((order) => (
-                <Col xs={11} md={4} key={order.id} className="border-order my-5 mx-2">
+                <Col xs={11} md={5} lg={4} key={order.id} className="border-order my-5 mx-2">
                   <div className="border-order2">
                     <div>
                       <h4 className="num-order">Order code: {order.id}</h4>
@@ -88,7 +96,7 @@ const OrderAdmin = () => {
                       </Link>
                       <button
                         onClick={() => {
-                          deleteProduct(order.id);
+                          handleDelete(order.id);
                         }}
                         className="style-btn-delete"
                       >
@@ -102,6 +110,21 @@ const OrderAdmin = () => {
         </Row>
       )}
       {message && <p className="text-center mt-4">{message}</p>}
+
+      <Modal show={showModal} onHide={() => setShowModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm Deletion</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure you want to delete this order?</Modal.Body>
+        <Modal.Footer>
+          <button className="style-btn" onClick={() => setShowModal(false)}>
+            Cancel
+          </button>
+          <button className="style-btn-delete" onClick={deleteOrder}>
+            Delete
+          </button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 };

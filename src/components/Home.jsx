@@ -10,12 +10,15 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import axios from "axios";
 import Carousel from "react-bootstrap/Carousel";
+import Modal from "react-bootstrap/Modal";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [deleteId, setDeleteId] = useState(null);
   const [message, setMessage] = useState("");
   const user = useSelector((state) => state.user);
 
@@ -37,12 +40,18 @@ const Home = () => {
       });
   }, []);
 
+  const handleDelete = (id) => {
+    setShowModal(true);
+    setDeleteId(id);
+  };
+
   const deleteProduct = (id) => {
     axios
-      .delete(`/api/v1/products/${id}`)
+      .delete(`/api/v1/products/${deleteId}`)
 
       .then((res) => {
         setMessage("Product deleted successfully");
+        setShowModal(false);
         window.location.reload("/");
       })
       .catch((error) => {
@@ -160,7 +169,7 @@ const Home = () => {
                         <div>
                           <button
                             onClick={() => {
-                              deleteProduct(product.id);
+                              handleDelete(product.id);
                             }}
                             className="mx-1 my-3 style-btn-delete"
                           >
@@ -221,6 +230,21 @@ const Home = () => {
       )}
 
       {message && <p className="text-center mt-4">{message}</p>}
+
+      <Modal show={showModal} onHide={() => setShowModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm Deletion</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure you want to delete this product?</Modal.Body>
+        <Modal.Footer>
+          <button className="style-btn" onClick={() => setShowModal(false)}>
+            Cancel
+          </button>
+          <button className="style-btn-delete" onClick={deleteProduct}>
+            Delete
+          </button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 };

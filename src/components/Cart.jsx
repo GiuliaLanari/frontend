@@ -9,7 +9,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
@@ -135,12 +134,12 @@ const Cart = () => {
         </Modal.Header>
         <Modal.Body>Are you sure you want to empty your cart?</Modal.Body>
         <Modal.Footer>
-          <Button className="style-btn" onClick={() => setShowModal(false)}>
+          <button className="style-btn" onClick={() => setShowModal(false)}>
             Cancel
-          </Button>
-          <Button className="style-btn-delete" onClick={confirmDelete}>
+          </button>
+          <button className="style-btn-delete" onClick={confirmDelete}>
             Delete
-          </Button>
+          </button>
         </Modal.Footer>
       </Modal>
     </Container>
