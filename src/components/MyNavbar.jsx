@@ -24,7 +24,7 @@ const MyNavbar = () => {
   };
 
   return (
-    <Navbar expand="md" bg="dark" data-bs-theme="dark" className="text-white py-2 sticky-top">
+    <Navbar expand="lg" bg="dark" data-bs-theme="dark" className="text-white py-2 sticky-top">
       <Container>
         <Link to="/" className="nav-link linkHover">
           <img src={"assets/logo.png"} alt="logo" className="f-logo" />
@@ -100,14 +100,49 @@ const MyNavbar = () => {
               />
               Reviews
             </Link>
+
+            {user ? (
+              <>
+                <Link to="/change-password" className="nav-link linkHover mobile-nav-menu ">
+                  <img
+                    width="35"
+                    height="35"
+                    src="https://img.icons8.com/nolan/35/1A6DFF/C822FF/password.png"
+                    alt="password"
+                    className="me-2"
+                  />
+                  Change Password
+                </Link>
+                <Link className="nav-link linkHover mobile-nav-menu  " to="/contact-us">
+                  <img
+                    width="35"
+                    height="35"
+                    src="https://img.icons8.com/nolan/35/speech-bubble-with-dots.png"
+                    alt="speech-bubble-with-dots"
+                    className="me-2"
+                  />
+                  Contact us
+                </Link>
+              </>
+            ) : (
+              ""
+            )}
+
+            {!user ? (
+              <Link className="nav-link linkHover p-2 ms-1 " to="/contact-us">
+                <img
+                  width="35"
+                  height="35"
+                  src="https://img.icons8.com/nolan/35/speech-bubble-with-dots.png"
+                  alt="speech-bubble-with-dots"
+                  className="me-2"
+                />
+                Contact us
+              </Link>
+            ) : (
+              ""
+            )}
           </Nav>
-          {!user ? (
-            <Link className="nav-link linkHover p-2 me-3" to="/contact-us">
-              Contact us
-            </Link>
-          ) : (
-            ""
-          )}
 
           {user ? (
             <>
@@ -123,9 +158,23 @@ const MyNavbar = () => {
 
                   <Dropdown.Menu>
                     <Dropdown.Item as={Link} to="/change-password" className="dropdown-item">
+                      <img
+                        width="35"
+                        height="35"
+                        src="https://img.icons8.com/nolan/35/1A6DFF/C822FF/password.png"
+                        alt="password"
+                        className="me-2"
+                      />
                       Change Password
                     </Dropdown.Item>
                     <Dropdown.Item as={Link} to="/contact-us" className="dropdown-item">
+                      <img
+                        width="35"
+                        height="35"
+                        src="https://img.icons8.com/nolan/35/speech-bubble-with-dots.png"
+                        alt="speech-bubble-with-dots"
+                        className="me-2"
+                      />
                       Contact us
                     </Dropdown.Item>
                   </Dropdown.Menu>

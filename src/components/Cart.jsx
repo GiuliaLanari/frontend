@@ -8,12 +8,16 @@ import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [message, setMessage] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [deleteId, setDeleteId] = useState(null);
   const navigate = useNavigate();
 
   const user = useSelector((state) => state.user);
@@ -36,19 +40,23 @@ const Cart = () => {
       });
   }, []);
 
-  const deleteProduct = (id) => {
-    if (window.confirm("Are you sure you want to empty your cart?")) {
-      axios
-        .delete(`/api/v1/carts/${id}`)
-        .then((res) => {
-          setMessage("Cart deleted successfully");
-          navigate("/");
-        })
-        .catch((error) => {
-          setMessage("Failed to delete the cart. Please try again.");
-          console.error("There was an error deleting the product in the cart!", error);
-        });
-    }
+  const handleDelete = (id) => {
+    setShowModal(true);
+    setDeleteId(id);
+  };
+
+  const confirmDelete = () => {
+    axios
+      .delete(`/api/v1/carts/${deleteId}`)
+      .then((res) => {
+        setMessage("Cart deleted successfully");
+        setShowModal(false);
+        navigate("/");
+      })
+      .catch((error) => {
+        setMessage("Failed to delete the cart. Please try again.");
+        console.error("There was an error deleting the product in the cart!", error);
+      });
   };
 
   const buyCart = () => {
@@ -71,7 +79,7 @@ const Cart = () => {
         {loading ? (
           <Spinner animation="grow" className="mx-auto mt-5" />
         ) : error ? (
-          <div class="alert alert-danger" role="alert">
+          <div className="alert alert-danger" role="alert">
             Error: {error}
           </div>
         ) : (
@@ -94,21 +102,11 @@ const Cart = () => {
                       </Col>
                     ))}
                     <Col className="text-end">
-                      <button
-                        onClick={() => {
-                          deleteProduct(obj.id);
-                        }}
-                        className="style-btn-delete m-btn-delete me-2"
-                      >
+                      <button onClick={() => handleDelete(obj.id)} className="style-btn-delete m-btn-delete me-2">
                         <FaTrash className="me-2 align-middle" />
                         Delete all cart
                       </button>
-                      <button
-                        onClick={() => {
-                          buyCart();
-                        }}
-                        className="style-btn"
-                      >
+                      <button onClick={() => buyCart()} className="style-btn">
                         Order now
                       </button>
                     </Col>
@@ -130,6 +128,21 @@ const Cart = () => {
         )}
       </Row>
       {message && <p className="text-center mt-4">{message}</p>}
+
+      <Modal show={showModal} onHide={() => setShowModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm Deletion</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure you want to empty your cart?</Modal.Body>
+        <Modal.Footer>
+          <Button className="style-btn" onClick={() => setShowModal(false)}>
+            Cancel
+          </Button>
+          <Button className="style-btn-delete" onClick={confirmDelete}>
+            Delete
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 };

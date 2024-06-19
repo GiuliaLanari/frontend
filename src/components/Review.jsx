@@ -66,7 +66,7 @@ const Review = () => {
             <Col xs={12}>
               <Row>
                 {reviews.map((review) => (
-                  <Col xs={8} md={4} lg={3} key={review.id} className="my-4 mx-auto">
+                  <Col xs={10} md={4} lg={3} key={review.id} className="my-4 mx-auto">
                     <div className="review-border h-100">
                       <p>
                         <FaUserCircle className="f-navIcons" /> {review.user.name}

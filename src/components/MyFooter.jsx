@@ -15,22 +15,35 @@ const MyFooter = () => {
         <div className="footer ">
           <div className="font">
             <Link to="https://www.instagram.com/mett_and_giu_market/" target="_blank" rel="noopener noreferrer">
-              <img
+              {/* <img
                 width="48"
                 height="48"
                 src="https://img.icons8.com/fluency/48/instagram-new.png"
+                alt="instagram-new"
+              /> */}
+              <img
+                width="48"
+                height="48"
+                src="https://img.icons8.com/nolan/64/1A6DFF/C822FF/instagram-new.png"
                 alt="instagram-new"
               />
             </Link>
           </div>
           <div className="font">
             <Link to={mailtoLink} target="_blank" rel="noopener noreferrer">
-              <img width="48" height="48" src="https://img.icons8.com/fluency/48/gmail-new.png" alt="gmail-new" />
+              {/* <img width="48" height="48" src="https://img.icons8.com/fluency/48/gmail-new.png" alt="gmail-new" /> */}
+              <img width="48" height="48" src="https://img.icons8.com/nolan/64/1A6DFF/C822FF/gmail.png" alt="gmail" />
             </Link>
           </div>
           <div className="font">
             <Link to={whatsappLink} target="_blank" rel="noopener noreferrer">
-              <img width="48" height="48" src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="whatsapp--v1" />
+              {/* <img width="48" height="48" src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="whatsapp--v1" /> */}
+              <img
+                width="48"
+                height="48"
+                src="https://img.icons8.com/nolan/64/1A6DFF/C822FF/whatsapp.png"
+                alt="whatsapp"
+              />
             </Link>
           </div>
         </div>

@@ -179,7 +179,7 @@ const Home = () => {
               ))}
             </Row>
           </Col>
-          <Col xs={11} md={5}>
+          <Col xs={12} md={5}>
             <video
               src={"/assets/publicity/summer-collection.mp4"}
               autoPlay
