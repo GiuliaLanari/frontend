@@ -58,7 +58,8 @@ function App() {
 
         <Routes>
           <Route element={<LoginRoute />}>
-            {/* verification email profile if login */}
+            {/* verification email profile if login
+            PROVAAAAAA */}
             <Route path="/email-verify" element={<VerifyEmailPage />} />
 
             {/* Edit profile if login */}
