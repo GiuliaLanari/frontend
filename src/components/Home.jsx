@@ -52,7 +52,21 @@ const Home = () => {
       .then((res) => {
         setMessage("Product deleted successfully");
         setShowModal(false);
-        window.location.reload("/");
+        fetch("/api/v1/products")
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return res.json();
+          })
+          .then((data) => {
+            setProducts(data.data);
+            setLoading(false);
+          })
+          .catch((error) => {
+            setError(error.message);
+            setLoading(false);
+          });
       })
       .catch((error) => {
         setMessage("Failed to delete the product. Please try again.");

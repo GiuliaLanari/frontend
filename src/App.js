@@ -26,6 +26,9 @@ import MyFooter from "./components/MyFooter";
 import ChangePassword from "./components/form/ChangePassword";
 import LoginRoute from "./components/route/LoginRoute";
 import ContactForm from "./components/form/ContactForm";
+import UpdateEmailForm from "./components/form/UpdateEmail";
+import ChangeNameSurname from "./components/form/ChangeNameSurname";
+import EditProfile from "./components/EditProfile";
 
 function App() {
   axios.defaults.withCredentials = true;
@@ -53,9 +56,15 @@ function App() {
         <MyNavbar />
 
         <Routes>
-          {/* Change password if login */}
           <Route element={<LoginRoute />}>
+            {/* Edit profile if login */}
+            <Route path="/edit-profile" element={<EditProfile />} />
+            {/* Change password if login */}
             <Route path="/change-password" element={<ChangePassword />} />
+            {/* Change email if login */}
+            <Route path="/update-email" element={<UpdateEmailForm />} />
+            {/* Change name & surname if login */}
+            <Route path="/update-profile" element={<ChangeNameSurname />} />
           </Route>
 
           {/* ROTTE PROTETTE ADMIN */}

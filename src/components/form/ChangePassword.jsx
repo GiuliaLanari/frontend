@@ -38,9 +38,9 @@ const ChangePassword = () => {
   };
 
   return (
-    <Container className="bg-login">
+    <Container className="bg-editProfile">
       <Row>
-        <Col xs={11} md={5} className="mx-auto my-5 form-container">
+        <Col xs={11} md={5} className="mx-auto my-5 form-editProfile">
           <h2 className="text-center my-5">Change Password</h2>
 
           <Form noValidate onSubmit={(ev) => handleChangePassword(ev)}>

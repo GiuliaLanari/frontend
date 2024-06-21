@@ -103,15 +103,15 @@ const MyNavbar = () => {
 
             {user ? (
               <>
-                <Link to="/change-password" className="nav-link linkHover mobile-nav-menu ">
+                <Link to="/edit-profile" className="nav-link linkHover mobile-nav-menu ">
                   <img
                     width="35"
                     height="35"
-                    src="https://img.icons8.com/nolan/35/1A6DFF/C822FF/password.png"
-                    alt="password"
+                    src="https://img.icons8.com/nolan/35/1A6DFF/C822FF/settings-3.png"
+                    alt="settings-3"
                     className="me-2"
                   />
-                  Change Password
+                  Profile
                 </Link>
                 <Link className="nav-link linkHover mobile-nav-menu  " to="/contact-us">
                   <img
@@ -157,25 +157,15 @@ const MyNavbar = () => {
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
-                    <Dropdown.Item as={Link} to="/change-password" className="dropdown-item">
+                    <Dropdown.Item as={Link} to="/edit-profile" className="dropdown-item">
                       <img
                         width="35"
                         height="35"
-                        src="https://img.icons8.com/nolan/35/1A6DFF/C822FF/password.png"
-                        alt="password"
+                        src="https://img.icons8.com/nolan/35/1A6DFF/C822FF/settings-3.png"
+                        alt="settings-3"
                         className="me-2"
                       />
-                      Change Password
-                    </Dropdown.Item>
-                    <Dropdown.Item as={Link} to="/contact-us" className="dropdown-item">
-                      <img
-                        width="35"
-                        height="35"
-                        src="https://img.icons8.com/nolan/35/speech-bubble-with-dots.png"
-                        alt="speech-bubble-with-dots"
-                        className="me-2"
-                      />
-                      Contact us
+                      Profile
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>

@@ -197,14 +197,29 @@ body {
 }
 
 .dettails-link {
+  display: block;
   text-decoration: none;
   color: #212529;
   font-weight: bolder;
+  margin-block: 1rem;
 }
 .dettails-link:hover {
   text-decoration: underline;
 }
 
+.bg-editProfile {
+  background-color: #a5a5a577;
+  margin-top: 2rem;
+  border-radius: 20px;
+}
+
+.form-editProfile {
+  border: 2px solid white;
+  backdrop-filter: blur(10px);
+  padding-inline: 3rem;
+  padding-block: 2rem;
+  color: #212529;
+}
 .tot-order {
   background-color: #59c9b45b;
   padding-inline: 0.8rem;

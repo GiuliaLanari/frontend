@@ -66,8 +66,8 @@ const Cart = () => {
         navigate("/myOrders");
       })
       .catch((error) => {
-        setMessage("Order not entered. Please try again.");
         console.error("Error loading the order!", error);
+        navigate("/cart");
       });
   };
 
