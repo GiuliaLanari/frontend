@@ -27,7 +27,7 @@ const EditProfile = () => {
               alt="approve-and-update"
               className="me-2"
             />
-            Change Email
+            Edit Email
           </Link>
           <Link to="/change-password" className="dettails-link">
             <img
@@ -37,7 +37,7 @@ const EditProfile = () => {
               alt="password"
               className="me-2"
             />
-            Change Password
+            Edit Password
           </Link>
         </Col>
       </Row>

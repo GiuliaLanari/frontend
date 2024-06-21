@@ -29,6 +29,7 @@ import ContactForm from "./components/form/ContactForm";
 import UpdateEmailForm from "./components/form/UpdateEmail";
 import ChangeNameSurname from "./components/form/ChangeNameSurname";
 import EditProfile from "./components/EditProfile";
+import VerifyEmailPage from "./components/VerifyEmailPage";
 
 function App() {
   axios.defaults.withCredentials = true;
@@ -57,6 +58,9 @@ function App() {
 
         <Routes>
           <Route element={<LoginRoute />}>
+            {/* verification email profile if login */}
+            <Route path="/email-verify" element={<VerifyEmailPage />} />
+
             {/* Edit profile if login */}
             <Route path="/edit-profile" element={<EditProfile />} />
             {/* Change password if login */}
