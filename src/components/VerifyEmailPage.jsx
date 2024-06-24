@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-
-// import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-// import Col from "react-bootstrap/Col";
 
 function VerifyEmailPage() {
   const { id, hash } = useParams();
@@ -15,12 +12,14 @@ function VerifyEmailPage() {
   useEffect(() => {
     const verifyEmail = async () => {
       try {
-        const response = await axios.get(`/api/v1/email/verify/${id}/${hash}`);
+        const response = await axios.get(`/api/v1/verify-email/${id}/${hash}`);
+        console.log(response.data);
         setMessage("Email verified successfully!");
         setTimeout(() => {
-          navigate("/login");
+          navigate(response.data.redirect_url);
         }, 3000);
       } catch (error) {
+        console.error("Verification failed:", error.response || error.message);
         setMessage("Verification failed. Please try again.");
       }
     };
@@ -40,8 +39,10 @@ function VerifyEmailPage() {
             </Link>
           </h3>
         </Col> */}
+        <div className="mx-auto bg-validated text-center">
+          <h1>{message}</h1>
+        </div>
       </Row>
-      {message}
     </Container>
   );
 }

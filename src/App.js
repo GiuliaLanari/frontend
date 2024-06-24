@@ -58,10 +58,6 @@ function App() {
 
         <Routes>
           <Route element={<LoginRoute />}>
-            {/* verification email profile if login
-            PROVAAAAAA */}
-            <Route path="/email-verify" element={<VerifyEmailPage />} />
-
             {/* Edit profile if login */}
             <Route path="/edit-profile" element={<EditProfile />} />
             {/* Change password if login */}
@@ -98,6 +94,10 @@ function App() {
           <Route path="/products/:id" element={<Product />} />
           <Route path="/reviews" element={<Review />} />
           <Route path="/contact-us" element={<ContactForm />} />
+
+          {/* verification email profile 
+            PROVAAAAAA */}
+          <Route path="/verify-email" element={<VerifyEmailPage />} />
 
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<Navigate to="/404" />} />
