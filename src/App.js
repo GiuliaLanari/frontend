@@ -30,6 +30,8 @@ import UpdateEmailForm from "./components/form/UpdateEmail";
 import ChangeNameSurname from "./components/form/ChangeNameSurname";
 import EditProfile from "./components/EditProfile";
 import VerifyEmailPage from "./components/VerifyEmailPage";
+import ForgotPassword from "./components/form/ForgotPassword";
+import ResetPassword from "./components/form/ResetPassword";
 
 function App() {
   axios.defaults.withCredentials = true;
@@ -98,6 +100,10 @@ function App() {
           {/* verification email profile 
             PROVAAAAAA */}
           <Route path="/verify-email" element={<VerifyEmailPage />} />
+
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          {/* PROVAAA */}
+          <Route path="/reset-password/:token" render={(props) => <ResetPassword token={props.match.params.token} />} />
 
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<Navigate to="/404" />} />

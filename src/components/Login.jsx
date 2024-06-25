@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { LOGIN } from "../redux/actions";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Alert from "react-bootstrap/Alert";
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
@@ -98,11 +99,14 @@ const Login = () => {
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
               </Row>
-              <div className="d-flex justify-content-center mt-5">
+              <div className="d-flex justify-content-center my-3">
                 <button type="submit" className="style-btn">
                   Login
                 </button>
               </div>
+              <Link to="/forgot-password" className="dettails-password">
+                Forgot Password?
+              </Link>
             </Form>
           </Col>
         )}

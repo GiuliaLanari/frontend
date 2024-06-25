@@ -398,6 +398,14 @@ body {
   border-radius: 20px;
 }
 
+.dettails-password {
+  color: white;
+  text-decoration: none;
+}
+.dettails-password:hover {
+  text-decoration: underline;
+}
+
 /* MEDIA QUERY */
 
 @media screen and (max-width: 576px) {
