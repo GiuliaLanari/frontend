@@ -16,7 +16,7 @@ function VerifyEmailPage() {
         console.log(response.data);
         setMessage("Email verified successfully!");
         setTimeout(() => {
-          navigate(response.data.redirect_url);
+          navigate("/");
         }, 3000);
       } catch (error) {
         console.error("Verification failed:", error.response || error.message);

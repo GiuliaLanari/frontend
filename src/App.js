@@ -99,7 +99,7 @@ function App() {
 
           {/* verification email profile 
             PROVAAAAAA */}
-          <Route path="/verify-email" element={<VerifyEmailPage />} />
+          <Route path="/verify-email/:id/:hash" element={<VerifyEmailPage />} />
 
           <Route path="/forgot-password" element={<ForgotPassword />} />
           {/* PROVAAA */}
