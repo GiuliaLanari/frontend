@@ -69,7 +69,7 @@ const Login = () => {
           <Spinner animation="grow" variant="light" className="mx-auto mt-5 mx-auto" />
         ) : (
           <Col xs={11} md={5} className="mx-auto my-5 form-container">
-            <h1>Login</h1>
+            <h1 className="mb-4">Login</h1>
 
             <Form noValidate onSubmit={(ev) => submitLogin(ev)}>
               <Row className="mb-3">

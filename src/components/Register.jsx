@@ -58,7 +58,7 @@ const Register = () => {
         )}
 
         <Col xs={11} md={5} className="mx-auto my-5 form-container">
-          <h1>Register</h1>
+          <h1 className="mb-4">Register</h1>
 
           <Form noValidate onSubmit={(ev) => submitLogin(ev)}>
             <Row className="mb-3">
