@@ -26,7 +26,7 @@ function ResetPassword() {
       setMessage("Successfully changing your password.");
       setTimeout(() => {
         navigate("/login");
-      }, 3000);
+      }, 5000);
     } catch (error) {
       setMessage("Reset failed or another error occurred.");
     }
