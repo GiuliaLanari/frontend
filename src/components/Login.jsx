@@ -105,7 +105,7 @@ const Login = () => {
                 </button>
               </div>
               <Link to="/forgot-password" className="dettails-password">
-                Forgot Password?
+                Forgot Your Password?
               </Link>
             </Form>
           </Col>

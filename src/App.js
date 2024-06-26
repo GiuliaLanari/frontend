@@ -103,7 +103,7 @@ function App() {
 
           <Route path="/forgot-password" element={<ForgotPassword />} />
           {/* PROVAAA */}
-          <Route path="/reset-password/:token" render={(props) => <ResetPassword token={props.match.params.token} />} />
+          <Route path="/password-reset/:token" element={<ResetPassword />} />
 
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<Navigate to="/404" />} />
