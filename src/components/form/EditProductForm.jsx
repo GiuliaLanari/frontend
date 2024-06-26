@@ -126,7 +126,7 @@ const EditProductForm = () => {
           <Spinner animation="grow" className="mx-auto mt-5" />
         ) : (
           <Col xs={12} md={5} className="mx-auto my-5">
-            <h1>Edit product</h1>
+            <h1 className="text-center my-2">Edit product</h1>
             <form onSubmit={(ev) => submitForm(ev)} noValidate>
               <div className="mb-3">
                 <label htmlFor="title" className="form-label">

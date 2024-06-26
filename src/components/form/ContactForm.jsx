@@ -51,8 +51,8 @@ const ContactForm = () => {
   return (
     <Container className="bg-contact">
       <Row>
-        <Col xs={11} md={5} className="mx-auto my-5 form-container">
-          <h2 className="text-center my-5">Contact us</h2>
+        <Col xs={11} md={5} className="mx-auto mb-2 form-container">
+          <h2 className="text-center ">Contact us</h2>
           <Form noValidate onSubmit={(ev) => handleSubmit(ev)}>
             {alert.show && (
               <Alert variant={alert.variant} onClose={() => setAlert({ show: false })} dismissible>

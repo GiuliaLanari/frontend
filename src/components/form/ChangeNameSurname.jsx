@@ -25,7 +25,7 @@ const ChangeNameSurname = () => {
     <Container className="bg-editProfile">
       <Row>
         <Col xs={11} md={5} className="mx-auto my-5 form-editProfile">
-          <h2 className="text-center  my-5">Edit profile</h2>
+          <h2 className="text-center  my-2">Edit profile</h2>
 
           <Form noValidate onSubmit={(ev) => handleSubmit(ev)}>
             <Row className="mb-3">

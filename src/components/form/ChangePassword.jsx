@@ -41,7 +41,12 @@ const ChangePassword = () => {
     <Container className="bg-editProfile">
       <Row>
         <Col xs={11} md={5} className="mx-auto my-5 form-editProfile">
-          <h2 className="text-center my-5">Change Password</h2>
+          <h2
+            className="text-center my-2
+          "
+          >
+            Change Password
+          </h2>
 
           <Form noValidate onSubmit={(ev) => handleChangePassword(ev)}>
             <Row className="mb-3">

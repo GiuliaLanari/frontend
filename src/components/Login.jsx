@@ -99,7 +99,7 @@ const Login = () => {
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
               </Row>
-              <div className="d-flex justify-content-center my-3">
+              <div className="d-flex justify-content-center my-4">
                 <button type="submit" className="style-btn">
                   Login
                 </button>

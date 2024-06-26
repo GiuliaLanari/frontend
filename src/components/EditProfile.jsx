@@ -8,7 +8,7 @@ const EditProfile = () => {
     <Container className="bg-editProfile">
       <Row>
         <Col xs={11} md={5} className="mx-auto my-5 form-editProfile">
-          <h2 className="text-center  my-5">Profile settings</h2>
+          <h2 className="text-center  my-3">Profile settings</h2>
           <Link to="/update-profile" className="dettails-link">
             <img
               width="35"

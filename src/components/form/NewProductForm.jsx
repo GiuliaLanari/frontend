@@ -108,7 +108,7 @@ const NewProductForm = () => {
           <Spinner animation="grow" className="mx-auto mt-5" />
         ) : (
           <Col xs={12} md={5} className="mx-auto my-5">
-            <h1>New product</h1>
+            <h1 className="text-center my-2">New product</h1>
             <Form noValidate onSubmit={(ev) => submitForm(ev)}>
               <Row className="mb-3">
                 <Form.Group as={Col} md="12" controlId="title">

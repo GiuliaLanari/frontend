@@ -35,7 +35,7 @@ function ResetPassword() {
   return (
     <Container className="bg-editProfile">
       <Row>
-        <Col xs={11} md={6} className="mx-auto my-5 form-editProfile">
+        <Col xs={11} md={6} className="mx-auto my-2 form-editProfile">
           <h2>Reset Password</h2>
           <Form noValidate onSubmit={(ev) => handleSubmit(ev)}>
             <Row className="mb-3">
