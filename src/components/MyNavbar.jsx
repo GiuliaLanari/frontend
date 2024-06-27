@@ -167,6 +167,17 @@ const MyNavbar = () => {
                       />
                       Profile
                     </Dropdown.Item>
+
+                    <Dropdown.Item as={Link} to="/contact-us" className="dropdown-item">
+                      <img
+                        width="35"
+                        height="35"
+                        src="https://img.icons8.com/nolan/35/speech-bubble-with-dots.png"
+                        alt="speech-bubble-with-dots"
+                        className="me-2"
+                      />
+                      Contact us
+                    </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </span>

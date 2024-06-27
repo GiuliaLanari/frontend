@@ -459,6 +459,9 @@ body {
   .bg-carosel {
     margin-top: 1rem;
   }
+  .dettails-password {
+    font-size: 15px;
+  }
 }
 
 @media screen and (min-width: 577px) {
