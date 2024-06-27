@@ -27,7 +27,7 @@ const MyNavbar = () => {
     <Navbar expand="lg" bg="dark" data-bs-theme="dark" className="text-white py-2 sticky-top">
       <Container>
         <Link to="/" className="nav-link linkHover">
-          <img src={"assets/logo.png"} alt="logo" className="f-logo" />
+          <img src={"/assets/logo.png"} alt="logo" className="f-logo" />
         </Link>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
