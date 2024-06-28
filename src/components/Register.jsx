@@ -27,7 +27,7 @@ const Register = () => {
     }));
   };
 
-  const submitLogin = (ev) => {
+  const submitRegister = (ev) => {
     ev.preventDefault();
 
     axios
@@ -60,7 +60,7 @@ const Register = () => {
         <Col xs={11} md={5} className="mx-auto my-5 form-container">
           <h1 className="mb-4">Register</h1>
 
-          <Form noValidate onSubmit={(ev) => submitLogin(ev)}>
+          <Form noValidate onSubmit={(ev) => submitRegister(ev)}>
             <Row className="mb-3">
               <Form.Group as={Col} md="12" controlId="name">
                 <Form.Label> Name</Form.Label>
