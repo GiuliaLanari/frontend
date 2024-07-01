@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function VerifyEmailPage() {
   const { id, hash } = useParams();
@@ -30,18 +32,9 @@ function VerifyEmailPage() {
   return (
     <Container fluid>
       <Row>
-        {/* <Col xs={11} md={9} className="mx-auto bg-validated">
-          <h1>Email Verificated! </h1>
-          <h3>
-            go back to{" "}
-            <Link to="/" className="text-home">
-              HomePage
-            </Link>
-          </h3>
-        </Col> */}
-        <div className="mx-auto bg-validated text-center">
+        <Col xs={11} md={9} className="mx-auto bg-validated">
           <h1>{message}</h1>
-        </div>
+        </Col>
       </Row>
     </Container>
   );

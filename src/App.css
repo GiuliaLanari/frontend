@@ -406,6 +406,14 @@ body {
   text-decoration: underline;
 }
 
+.spinnerAllPage {
+  margin-block-start: 3rem;
+  height: 30rem;
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+}
+
 /* MEDIA QUERY */
 
 @media screen and (max-width: 576px) {

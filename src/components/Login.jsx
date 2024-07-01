@@ -66,7 +66,9 @@ const Login = () => {
         )}
 
         {loading ? (
-          <Spinner animation="grow" variant="light" className="mx-auto mt-5 mx-auto" />
+          <Col xs={12} md={5} className="spinnerAllPage">
+            <Spinner animation="grow" variant="light" />
+          </Col>
         ) : (
           <Col xs={11} md={5} className="mx-auto my-5 form-container">
             <h1 className="mb-4">Login</h1>

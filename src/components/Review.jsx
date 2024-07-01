@@ -56,7 +56,9 @@ const Review = () => {
       <Row>
         <h1 className="my-5 text-center">Reviews Productes</h1>
         {loading ? (
-          <Spinner animation="grow" className="mx-auto mt-5" />
+          <Col xs={12} md={5} className="spinnerAllPage">
+            <Spinner animation="grow" />
+          </Col>
         ) : error ? (
           <div class="alert alert-danger" role="alert">
             Error: {error}

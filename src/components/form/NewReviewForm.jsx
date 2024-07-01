@@ -62,7 +62,9 @@ const NewReviewForm = () => {
         )}
 
         {loading ? (
-          <Spinner animation="grow" className="mx-auto mt-5" />
+          <Col xs={12} md={5} className="spinnerAllPage">
+            <Spinner animation="grow" />
+          </Col>
         ) : (
           <Col xs={12} md={5} className="mx-auto my-2 form-container">
             <h1>New review</h1>

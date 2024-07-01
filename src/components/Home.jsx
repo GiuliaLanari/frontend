@@ -89,7 +89,9 @@ const Home = () => {
   return (
     <Container fluid className=" d-flex flex-column justify-content-center">
       {loading ? (
-        <Spinner animation="grow" className="mx-auto mt-5" />
+        <Col xs={12} md={5} className="spinnerAllPage">
+          <Spinner animation="grow" />
+        </Col>
       ) : error ? (
         <div class="alert alert-danger mt-5" role="alert">
           Error: {error}
