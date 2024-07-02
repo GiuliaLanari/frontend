@@ -70,7 +70,9 @@ const Product = () => {
         </Row>
       </Container>
       {loading ? (
-        <Spinner animation="grow" className="mx-auto mt-5 " />
+        <Col xs={12} md={5} className="spinnerAllPage">
+          <Spinner animation="grow" variant="light" />
+        </Col>
       ) : (
         product && (
           <Container>
