@@ -178,6 +178,7 @@ const Product = () => {
           </Container>
         )
       )}
+      {message && <p className="text-center mt-4">{message}</p>}
     </div>
   );
 };
